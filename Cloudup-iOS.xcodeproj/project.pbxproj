@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		095C82B27B0A4BDD83628BF5 /* libPods-unit_tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A0D10858BF07451BAA4AACAF /* libPods-unit_tests.a */; };
 		37C17D5B177446DEADF9267B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 550E27DFEBC942A0A48D3008 /* Images.xcassets */; };
 		7A92AB7550A346D0A5552A8B /* EGKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD75BC08B6944F5847AB093 /* EGKAppDelegate.m */; };
 		D316217BD60846F0AD79B0C0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDE728C6C28F4A3FA98BA2F4 /* Foundation.framework */; };
@@ -29,7 +30,9 @@
 		249838936BEF4FA0815FFA90 /* Cloudup-iOS-Prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Cloudup-iOS-Prefix.pch"; sourceTree = "<group>"; };
 		550E27DFEBC942A0A48D3008 /* Images.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5B62653685B04F5E94AE93A1 /* UnitTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "UnitTests-Info.plist"; sourceTree = "<group>"; };
+		66565E00D82248E08470A1AE /* Pods-unit_tests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-unit_tests.xcconfig"; path = "Pods/Pods-unit_tests.xcconfig"; sourceTree = "<group>"; };
 		7EEB19148CD74D10B470E462 /* main.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A0D10858BF07451BAA4AACAF /* libPods-unit_tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-unit_tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A67E92EB6CE34C9AB2076611 /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAD75BC08B6944F5847AB093 /* EGKAppDelegate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = EGKAppDelegate.m; sourceTree = "<group>"; };
 		E21DA96962854DBD8722BE41 /* Cloudup-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cloudup-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -42,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				095C82B27B0A4BDD83628BF5 /* libPods-unit_tests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				2188D990EBD44AE880A036EB /* iOS */,
+				A0D10858BF07451BAA4AACAF /* libPods-unit_tests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -209,6 +214,7 @@
 				2B1F71B80A804724847CD369 /* UnitTests */,
 				ECB6F4D0C165473ABDF9414A /* Frameworks */,
 				8A3ACE09000A42F0B7E5C9C6 /* Products */,
+				66565E00D82248E08470A1AE /* Pods-unit_tests.xcconfig */,
 			);
 			indentWidth = 4;
 			sourceTree = "<group>";
@@ -243,9 +249,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7FF37D9EC22D4FD099BB0C4B /* Build configuration list for PBXNativeTarget "UnitTests" */;
 			buildPhases = (
+				09E79EC6B3E44EBF83F79630 /* Check Pods Manifest.lock */,
 				2CC3216053ED416592C2BEC1 /* Sources */,
 				1639989EC7CC4F40AEF01A8E /* Frameworks */,
 				B69BC0C175544D83864E30EF /* Resources */,
+				6156C11B2A0146D68291BF25 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -322,6 +330,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		09E79EC6B3E44EBF83F79630 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		4D0D64F10FF54528892219A3 /* Warn for TODO and FIXME comments */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -335,6 +358,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "KEYWORDS=\"TODO:|FIXME:|\\?\\?\\?:|\\!\\!\\!:\"\nFILE_EXTENSIONS=\"h|m|mm|c|cpp\"\nfind -E \"${SRCROOT}\" -ipath \"${SRCROOT}/pods\" -prune -o \\( -regex \".*\\.($FILE_EXTENSIONS)$\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($KEYWORDS).*\\$\" | perl -p -e \"s/($KEYWORDS)/ warning: \\$1/\"\n";
+		};
+		6156C11B2A0146D68291BF25 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-unit_tests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -368,6 +406,7 @@
 /* Begin XCBuildConfiguration section */
 		308EAA51B97344949991ED7B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 66565E00D82248E08470A1AE /* Pods-unit_tests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Cloudup-iOS.app/Cloudup-iOS";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -387,6 +426,7 @@
 		};
 		313E056DD40A487DB48BF025 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 66565E00D82248E08470A1AE /* Pods-unit_tests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Cloudup-iOS.app/Cloudup-iOS";
 				FRAMEWORK_SEARCH_PATHS = (
