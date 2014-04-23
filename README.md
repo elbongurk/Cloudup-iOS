@@ -2,6 +2,8 @@
 
 Displays recent items for your Cloudup streams. Allows you to get more information on each item as well as to delete items. Optional push notification for newly synced items.
 
+__Note__: This software is *not* produced or endorced by Automattic Inc., the owners of Cloudup.
+
 ## To Install
 
 This is prelease software not available on the Apple App Store.
