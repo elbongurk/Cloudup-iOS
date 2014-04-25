@@ -9,5 +9,14 @@
 #import <Foundation/Foundation.h>
 
 @interface EGKUserSession : NSObject
-+ (NSString *)userID;
+
+@property (readonly, nonatomic) NSString *username;
+@property (readonly, nonatomic) NSString *password;
+
++ (EGKUserSession *)currentUserSession;
+
+- (id)initWithPassword:(NSString *)password forUsername:(NSString *)username;
+- (BOOL)useSession;
+- (void)clearSession;
+
 @end

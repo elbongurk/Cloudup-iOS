@@ -10,4 +10,19 @@
 
 @implementation EGKUser
 
+- (id)initWithJSON:(NSDictionary *)JSONDictionary
+{
+    self = [super init];
+    
+    if (!self) {
+        return nil;
+    }
+    
+    _userID = JSONDictionary[@"id"];
+    _name = JSONDictionary[@"name"];
+    _username = JSONDictionary[@"username"];
+
+    return self;
+}
+
 @end

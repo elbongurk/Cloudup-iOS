@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		095C82B27B0A4BDD83628BF5 /* libPods-unit_tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A0D10858BF07451BAA4AACAF /* libPods-unit_tests.a */; };
+		2D61D5C3190B000200EB6B6E /* EGKUserAvatar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D61D5C2190B000200EB6B6E /* EGKUserAvatar.m */; };
 		2D97A9FE19071578000E9275 /* EGKLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D97A9FD19071578000E9275 /* EGKLoginController.m */; };
 		2D97AA011907191A000E9275 /* EGKStreamController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D97AA001907191A000E9275 /* EGKStreamController.m */; };
 		37C17D5B177446DEADF9267B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 550E27DFEBC942A0A48D3008 /* Images.xcassets */; };
@@ -36,6 +37,8 @@
 		04FF0F43221E4AD5A054E754 /* Cloudup-iOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Cloudup-iOS-Info.plist"; sourceTree = "<group>"; };
 		06759F648FB9475EA3FB6E26 /* UnitTests-Prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UnitTests-Prefix.pch"; sourceTree = "<group>"; };
 		249838936BEF4FA0815FFA90 /* Cloudup-iOS-Prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Cloudup-iOS-Prefix.pch"; sourceTree = "<group>"; };
+		2D61D5C1190B000200EB6B6E /* EGKUserAvatar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGKUserAvatar.h; sourceTree = "<group>"; };
+		2D61D5C2190B000200EB6B6E /* EGKUserAvatar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGKUserAvatar.m; sourceTree = "<group>"; };
 		2D97A9FC19071578000E9275 /* EGKLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGKLoginController.h; sourceTree = "<group>"; };
 		2D97A9FD19071578000E9275 /* EGKLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGKLoginController.m; sourceTree = "<group>"; };
 		2D97A9FF1907191A000E9275 /* EGKStreamController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGKStreamController.h; sourceTree = "<group>"; };
@@ -190,6 +193,8 @@
 				7ED8154A1909C46A00AB88CB /* EGKUser.m */,
 				7ED8154C1909C47A00AB88CB /* EGKUserSession.h */,
 				7ED8154D1909C47A00AB88CB /* EGKUserSession.m */,
+				2D61D5C1190B000200EB6B6E /* EGKUserAvatar.h */,
+				2D61D5C2190B000200EB6B6E /* EGKUserAvatar.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -486,6 +491,7 @@
 				7E2761B91907D66F008000C5 /* EGKApplicationController.m in Sources */,
 				2D97AA011907191A000E9275 /* EGKStreamController.m in Sources */,
 				7ED815551909C76A00AB88CB /* EGKCloudupClient.m in Sources */,
+				2D61D5C3190B000200EB6B6E /* EGKUserAvatar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

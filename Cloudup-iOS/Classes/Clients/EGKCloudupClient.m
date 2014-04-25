@@ -8,8 +8,7 @@
 
 #import "EGKCloudupClient.h"
 #import "EGKUserSession.h"
-
-static NSString *const EGKAppSecret = @"yourOwnUniqueAppSecretThatYouShouldRandomlyGenerateAndKeepSecret";
+#import "EGKUser.h"
 
 @implementation EGKCloudupClient
 
@@ -18,22 +17,48 @@ static NSString *const EGKAppSecret = @"yourOwnUniqueAppSecretThatYouShouldRando
     static EGKCloudupClient *_sharedClient = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        
-        // Create a client
         NSURL *baseURL = [NSURL URLWithString:ROOT_URL];
         _sharedClient = [[EGKCloudupClient alloc] initWithBaseURL:baseURL];
-        
-        // Set the client header fields
-        if ([EGKUserSession userID])
-            [_sharedClient.requestSerializer setValue:[EGKUserSession userID]
-                                   forHTTPHeaderField:@"X-DEVICE-TOKEN"];
-        else
-            [_sharedClient.requestSerializer setValue:EGKAppSecret
-                                   forHTTPHeaderField:@"X-APP-SECRET"];
-        
     });
+    
+    EGKUserSession *session = [EGKUserSession currentUserSession];
+    if (session) {
+        [_sharedClient.requestSerializer setAuthorizationHeaderFieldWithUsername:session.username
+                                                                        password:session.password];
+    }
     
     return _sharedClient;
 }
+
++ (NSURLSessionDataTask *)testUserSession:(EGKUserSession *)userSession
+                      withCompletionBlock:(EGKCloudupClientUserSessionCompletionBlock)block
+{
+    NSURL *baseURL = [NSURL URLWithString:ROOT_URL];
+    EGKCloudupClient *client = [[EGKCloudupClient alloc] initWithBaseURL:baseURL];
+    
+    [client.requestSerializer setAuthorizationHeaderFieldWithUsername:userSession.username
+                                                             password:userSession.password];
+    
+    return [client fetchUserWithCompletionBlock:^(EGKUser *user) {
+        block(user != nil);
+    }];
+}
+
+- (NSURLSessionDataTask *)fetchUserWithCompletionBlock:(EGKCloudupClientUserCompletionBlock)block
+{
+    return [self GET:@"user"
+             parameters:nil
+             success:^(NSURLSessionDataTask *task, id responseObject) {
+                 EGKUser *user = nil;
+                 if ([responseObject isKindOfClass:[NSDictionary class]]) {
+                     user = [[EGKUser alloc] initWithJSON:responseObject];
+                 }
+                 block(user);
+             } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                 block(nil);
+             }];
+}
+
+
 
 @end
