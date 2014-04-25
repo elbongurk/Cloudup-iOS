@@ -8,8 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		095C82B27B0A4BDD83628BF5 /* libPods-unit_tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A0D10858BF07451BAA4AACAF /* libPods-unit_tests.a */; };
+		2D61D5C3190B000200EB6B6E /* EGKUserAvatar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D61D5C2190B000200EB6B6E /* EGKUserAvatar.m */; };
+		2D97A9FE19071578000E9275 /* EGKLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D97A9FD19071578000E9275 /* EGKLoginController.m */; };
+		2D97AA011907191A000E9275 /* EGKStreamController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D97AA001907191A000E9275 /* EGKStreamController.m */; };
 		37C17D5B177446DEADF9267B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 550E27DFEBC942A0A48D3008 /* Images.xcassets */; };
 		7A92AB7550A346D0A5552A8B /* EGKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD75BC08B6944F5847AB093 /* EGKAppDelegate.m */; };
+		7E2761B91907D66F008000C5 /* EGKApplicationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2761B81907D66F008000C5 /* EGKApplicationController.m */; };
+		7ED8154B1909C46A00AB88CB /* EGKUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED8154A1909C46A00AB88CB /* EGKUser.m */; };
+		7ED8154E1909C47A00AB88CB /* EGKUserSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED8154D1909C47A00AB88CB /* EGKUserSession.m */; };
+		7ED815551909C76A00AB88CB /* EGKCloudupClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED815541909C76A00AB88CB /* EGKCloudupClient.m */; };
+		7ED815591909C9DF00AB88CB /* EGKAppearanceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED815581909C9DF00AB88CB /* EGKAppearanceManager.m */; };
+		98A1CF0BF63946A9A18A4071 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5BDB76D630240BF81B95E6E /* libPods.a */; };
 		D316217BD60846F0AD79B0C0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDE728C6C28F4A3FA98BA2F4 /* Foundation.framework */; };
 		E3F4321069A34E9FBD8D1681 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EEB19148CD74D10B470E462 /* main.m */; };
 /* End PBXBuildFile section */
@@ -28,15 +37,33 @@
 		04FF0F43221E4AD5A054E754 /* Cloudup-iOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Cloudup-iOS-Info.plist"; sourceTree = "<group>"; };
 		06759F648FB9475EA3FB6E26 /* UnitTests-Prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UnitTests-Prefix.pch"; sourceTree = "<group>"; };
 		249838936BEF4FA0815FFA90 /* Cloudup-iOS-Prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Cloudup-iOS-Prefix.pch"; sourceTree = "<group>"; };
+		2D61D5C1190B000200EB6B6E /* EGKUserAvatar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGKUserAvatar.h; sourceTree = "<group>"; };
+		2D61D5C2190B000200EB6B6E /* EGKUserAvatar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGKUserAvatar.m; sourceTree = "<group>"; };
+		2D97A9FC19071578000E9275 /* EGKLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGKLoginController.h; sourceTree = "<group>"; };
+		2D97A9FD19071578000E9275 /* EGKLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGKLoginController.m; sourceTree = "<group>"; };
+		2D97A9FF1907191A000E9275 /* EGKStreamController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGKStreamController.h; sourceTree = "<group>"; };
+		2D97AA001907191A000E9275 /* EGKStreamController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGKStreamController.m; sourceTree = "<group>"; };
 		550E27DFEBC942A0A48D3008 /* Images.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5B62653685B04F5E94AE93A1 /* UnitTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "UnitTests-Info.plist"; sourceTree = "<group>"; };
 		66565E00D82248E08470A1AE /* Pods-unit_tests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-unit_tests.xcconfig"; path = "Pods/Pods-unit_tests.xcconfig"; sourceTree = "<group>"; };
+		7E2761B71907D66F008000C5 /* EGKApplicationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGKApplicationController.h; sourceTree = "<group>"; };
+		7E2761B81907D66F008000C5 /* EGKApplicationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGKApplicationController.m; sourceTree = "<group>"; };
+		7ED815491909C46A00AB88CB /* EGKUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGKUser.h; sourceTree = "<group>"; };
+		7ED8154A1909C46A00AB88CB /* EGKUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGKUser.m; sourceTree = "<group>"; };
+		7ED8154C1909C47A00AB88CB /* EGKUserSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGKUserSession.h; sourceTree = "<group>"; };
+		7ED8154D1909C47A00AB88CB /* EGKUserSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGKUserSession.m; sourceTree = "<group>"; };
+		7ED815531909C76A00AB88CB /* EGKCloudupClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGKCloudupClient.h; sourceTree = "<group>"; };
+		7ED815541909C76A00AB88CB /* EGKCloudupClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGKCloudupClient.m; sourceTree = "<group>"; };
+		7ED815571909C9DF00AB88CB /* EGKAppearanceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGKAppearanceManager.h; sourceTree = "<group>"; };
+		7ED815581909C9DF00AB88CB /* EGKAppearanceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGKAppearanceManager.m; sourceTree = "<group>"; };
 		7EEB19148CD74D10B470E462 /* main.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A0D10858BF07451BAA4AACAF /* libPods-unit_tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-unit_tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A67E92EB6CE34C9AB2076611 /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAD75BC08B6944F5847AB093 /* EGKAppDelegate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = EGKAppDelegate.m; sourceTree = "<group>"; };
 		E21DA96962854DBD8722BE41 /* Cloudup-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cloudup-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5BDB76D630240BF81B95E6E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDE728C6C28F4A3FA98BA2F4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		F5130D514E8F41BCA28EF186 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		FE021DCC86B44BD08D329151 /* EGKAppDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = EGKAppDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -54,6 +81,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D316217BD60846F0AD79B0C0 /* Foundation.framework in Frameworks */,
+				98A1CF0BF63946A9A18A4071 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +137,24 @@
 			path = Tests;
 			sourceTree = "<group>";
 		};
+		7ED815521909C76A00AB88CB /* Clients */ = {
+			isa = PBXGroup;
+			children = (
+				7ED815531909C76A00AB88CB /* EGKCloudupClient.h */,
+				7ED815541909C76A00AB88CB /* EGKCloudupClient.m */,
+			);
+			path = Clients;
+			sourceTree = "<group>";
+		};
+		7ED815561909C9DF00AB88CB /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				7ED815571909C9DF00AB88CB /* EGKAppearanceManager.h */,
+				7ED815581909C9DF00AB88CB /* EGKAppearanceManager.m */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		8A3ACE09000A42F0B7E5C9C6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +176,12 @@
 		9F98394D99294937A533A820 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				2D97A9FC19071578000E9275 /* EGKLoginController.h */,
+				2D97A9FD19071578000E9275 /* EGKLoginController.m */,
+				2D97A9FF1907191A000E9275 /* EGKStreamController.h */,
+				2D97AA001907191A000E9275 /* EGKStreamController.m */,
+				7E2761B71907D66F008000C5 /* EGKApplicationController.h */,
+				7E2761B81907D66F008000C5 /* EGKApplicationController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -137,6 +189,12 @@
 		AA57B070916A41CC96F67D39 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				7ED815491909C46A00AB88CB /* EGKUser.h */,
+				7ED8154A1909C46A00AB88CB /* EGKUser.m */,
+				7ED8154C1909C47A00AB88CB /* EGKUserSession.h */,
+				7ED8154D1909C47A00AB88CB /* EGKUserSession.m */,
+				2D61D5C1190B000200EB6B6E /* EGKUserAvatar.h */,
+				2D61D5C2190B000200EB6B6E /* EGKUserAvatar.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -167,6 +225,8 @@
 		D9C4E84D1FAA4020B74549E3 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				7ED815561909C9DF00AB88CB /* Managers */,
+				7ED815521909C76A00AB88CB /* Clients */,
 				DA1486E3879F43FA9A3A2DD0 /* Controllers */,
 				E2F9F2342F9F45A59CEFAEFD /* DataSources */,
 				C0D8CD782CA74939AB00E410 /* Delegates */,
@@ -203,6 +263,7 @@
 			children = (
 				2188D990EBD44AE880A036EB /* iOS */,
 				A0D10858BF07451BAA4AACAF /* libPods-unit_tests.a */,
+				E5BDB76D630240BF81B95E6E /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -215,6 +276,7 @@
 				ECB6F4D0C165473ABDF9414A /* Frameworks */,
 				8A3ACE09000A42F0B7E5C9C6 /* Products */,
 				66565E00D82248E08470A1AE /* Pods-unit_tests.xcconfig */,
+				F5130D514E8F41BCA28EF186 /* Pods.xcconfig */,
 			);
 			indentWidth = 4;
 			sourceTree = "<group>";
@@ -269,10 +331,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 89A84B288786458CA8C80AE4 /* Build configuration list for PBXNativeTarget "Cloudup-iOS" */;
 			buildPhases = (
+				E4299533ABB143A8BFAA14AC /* Check Pods Manifest.lock */,
 				CBBCF9BA849B45128545BF2E /* Sources */,
 				44771493915546BF865B76BE /* Frameworks */,
 				169FF80B636E48A7AF45EF21 /* Resources */,
 				4D0D64F10FF54528892219A3 /* Warn for TODO and FIXME comments */,
+				6C8C66A03AF54107A3FBB180 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -374,6 +438,36 @@
 			shellScript = "\"${SRCROOT}/Pods/Pods-unit_tests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		6C8C66A03AF54107A3FBB180 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E4299533ABB143A8BFAA14AC /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -388,8 +482,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D97A9FE19071578000E9275 /* EGKLoginController.m in Sources */,
+				7ED8154E1909C47A00AB88CB /* EGKUserSession.m in Sources */,
 				7A92AB7550A346D0A5552A8B /* EGKAppDelegate.m in Sources */,
+				7ED8154B1909C46A00AB88CB /* EGKUser.m in Sources */,
+				7ED815591909C9DF00AB88CB /* EGKAppearanceManager.m in Sources */,
 				E3F4321069A34E9FBD8D1681 /* main.m in Sources */,
+				7E2761B91907D66F008000C5 /* EGKApplicationController.m in Sources */,
+				2D97AA011907191A000E9275 /* EGKStreamController.m in Sources */,
+				7ED815551909C76A00AB88CB /* EGKCloudupClient.m in Sources */,
+				2D61D5C3190B000200EB6B6E /* EGKUserAvatar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -494,6 +596,7 @@
 		};
 		60262F1DB6F0463B847F6A28 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F5130D514E8F41BCA28EF186 /* Pods.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
@@ -504,6 +607,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Cloudup-iOS/Resources/Other-Sources/Cloudup-iOS-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
+					"ROOT_URL=@\\\"https://api.cloudup.com/1\\\"",
 					"DEBUG=1",
 					"$(inherited)",
 				);
@@ -574,6 +678,7 @@
 		};
 		CCD3D03F7DFC4E6383D508B3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F5130D514E8F41BCA28EF186 /* Pods.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
