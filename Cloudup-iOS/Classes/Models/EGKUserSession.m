@@ -10,7 +10,7 @@
 #import "EGKUser.h"
 #import <SSKeychain/SSKeychain.h>
 
-static NSString *const EGKCurrentUserSessionKey = @"com.elbongurk.cloudup.currentUserSession";
+static NSString *const EGKCurrentUserSessionKey = @"CurrentUserSession";
 static NSString *const EGKServiceKey = @"Cloudup";
 
 static EGKUserSession *_currentUserSession = nil;
