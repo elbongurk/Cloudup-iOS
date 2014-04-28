@@ -17,6 +17,6 @@
 
 - (id)initWithPassword:(NSString *)password forUsername:(NSString *)username;
 - (BOOL)useSession;
-- (void)clearSession;
+- (BOOL)clearSession;
 
 @end

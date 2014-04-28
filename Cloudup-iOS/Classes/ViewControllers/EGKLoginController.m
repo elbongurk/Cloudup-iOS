@@ -13,6 +13,7 @@
 #import "EGKUserSession.h"
 
 NSString *const EGKDidLoginNotification = @"EGKDidLoginNotification";
+NSString *const EGKDidLogoutNotification = @"EGKDidLogoutNotification";
 
 @interface EGKLoginController ()
 @property (strong, nonatomic) UITextField *emailText;

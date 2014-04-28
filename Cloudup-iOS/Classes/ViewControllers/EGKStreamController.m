@@ -18,7 +18,6 @@
 {
     self = [super init];
     if (self) {
-        // Custom initialization
     }
     return self;
 }
@@ -27,6 +26,8 @@
 {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor blueColor];
+    
+    //TODO: Load the stream in a UITableView
 }
 
 - (void)didReceiveMemoryWarning
