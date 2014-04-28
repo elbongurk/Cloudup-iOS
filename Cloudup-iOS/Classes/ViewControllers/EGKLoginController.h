@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+extern NSString * const EGKDidLoginNotification;
+
 @interface EGKLoginController : UIViewController
 
 @end

@@ -12,6 +12,8 @@
 #import "EGKUser.h"
 #import "EGKUserSession.h"
 
+NSString *const EGKDidLoginNotification = @"EGKDidLoginNotification";
+
 @interface EGKLoginController ()
 @property (strong, nonatomic) UITextField *emailText;
 @property (strong, nonatomic) UITextField *passwordText;
@@ -110,7 +112,8 @@
         if (authenticated) {
             [session useSession];
             self.directionsLabel.text = [NSString stringWithFormat:@"Welcome %@.", session.username];
-            //push to next controller
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:EGKDidLoginNotification object:self];
         }
         else {
             self.directionsLabel.text = @"Wrong username or password.";
