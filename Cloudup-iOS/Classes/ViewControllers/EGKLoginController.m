@@ -35,6 +35,8 @@ NSString *const EGKDidLogoutNotification = @"EGKDidLogoutNotification";
 {
     [super viewDidLoad];
 
+    //TODO: move this to a custom LoginView UIView
+    
     self.view.backgroundColor = [EGKAppearanceManager orange];
     
     UIImageView *logoView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cloudup-white-logo"]];

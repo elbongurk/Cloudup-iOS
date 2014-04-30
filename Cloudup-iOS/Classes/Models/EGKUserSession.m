@@ -20,10 +20,10 @@ static EGKUserSession *_currentUserSession = nil;
 {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        NSDictionary *account = [[SSKeychain accountsForService:EGKServiceKey] firstObject];
+        NSDictionary *account = [[SSKeychain accountsForService:EGKServiceKey] lastObject];
         if (account) {
-            NSString *password = account[@"password"];
-            NSString *username = account[@"account"];
+            NSString *username = account[kSSKeychainAccountKey];
+            NSString *password = [SSKeychain passwordForService:EGKServiceKey account:username];
             _currentUserSession = [[EGKUserSession alloc] initWithPassword:password forUsername:username];
         }
     });
@@ -31,7 +31,7 @@ static EGKUserSession *_currentUserSession = nil;
     return _currentUserSession;
 }
 
-- (id)initWithPassword:(NSString *)password forUsername:(NSString *)username
+- (instancetype)initWithPassword:(NSString *)password forUsername:(NSString *)username
 {
     self = [super init];
     
@@ -39,8 +39,8 @@ static EGKUserSession *_currentUserSession = nil;
         return nil;
     }
     
-    _username = [username copy];
-    _password = [password copy];
+    _username = username;
+    _password = password;
     
     return self;
 }

@@ -15,7 +15,7 @@
 
 + (EGKUserSession *)currentUserSession;
 
-- (id)initWithPassword:(NSString *)password forUsername:(NSString *)username;
+- (instancetype)initWithPassword:(NSString *)password forUsername:(NSString *)username;
 - (BOOL)useSession;
 - (BOOL)clearSession;
 

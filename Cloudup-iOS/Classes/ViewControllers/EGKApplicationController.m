@@ -48,7 +48,7 @@
     }
 
     //TODO: Should handle animations
-
+    
     [self addChildViewController:self.streamNavController];
     [self.view addSubview:self.streamNavController.view];
     [self.streamNavController didMoveToParentViewController:self];

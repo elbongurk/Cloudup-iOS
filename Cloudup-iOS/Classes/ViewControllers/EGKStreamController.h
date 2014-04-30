@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EGKStreamController : UIViewController
+@interface EGKStreamController : UITableViewController
 
 @end

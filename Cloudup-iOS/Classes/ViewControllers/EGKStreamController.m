@@ -7,33 +7,44 @@
 //
 
 #import "EGKStreamController.h"
+#import "EGKCloudupClient.h"
+#import "EGKArrayDataSource.h"
+#import "EGKStream.h"
+#import "EGKStreamCell.h"
 
-@interface EGKStreamController ()
+static NSString *const EGKStreamCellIdentifier = @"StreamCell";
 
+@interface EGKStreamController () <UITableViewDataSource, UITableViewDelegate>
+@property (nonatomic, strong) EGKArrayDataSource *source;
 @end
 
 @implementation EGKStreamController
 
-- (id)init
-{
-    self = [super init];
-    if (self) {
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor blueColor];
     
-    //TODO: Load the stream in a UITableView
+    self.navigationItem.title = @"Streams";
+    
+    TableViewCellConfigureBlock configureCell = ^(EGKStreamCell *cell, EGKStream *stream) {
+        [cell configureForStream:stream];
+    };
+    
+    [self.tableView registerClass:[EGKStreamCell class] forCellReuseIdentifier:EGKStreamCellIdentifier];
+
+    [[EGKCloudupClient sharedClient] fetchStreamsWithCompletionBlock:^(NSArray *streams) {
+        self.source = [[EGKArrayDataSource alloc] initWithItems:streams
+                                                 cellIdentifier:EGKStreamCellIdentifier
+                                             configureCellBlock:configureCell];
+        self.tableView.dataSource = self.source;
+        [self.tableView reloadData];
+    }];
+    
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

@@ -12,6 +12,7 @@
 
 typedef void(^EGKCloudupClientUserCompletionBlock)(EGKUser *user);
 typedef void(^EGKCloudupClientUserSessionCompletionBlock)(BOOL authenticated);
+typedef void(^EGKCloudupClientStreamsCompletionBlock)(NSArray *streams);
 
 @interface EGKCloudupClient : AFHTTPSessionManager
 
@@ -20,5 +21,6 @@ typedef void(^EGKCloudupClientUserSessionCompletionBlock)(BOOL authenticated);
                       withCompletionBlock:(EGKCloudupClientUserSessionCompletionBlock)block;
 
 - (NSURLSessionDataTask *)fetchUserWithCompletionBlock:(EGKCloudupClientUserCompletionBlock)block;
+- (NSURLSessionDataTask *)fetchStreamsWithCompletionBlock:(EGKCloudupClientStreamsCompletionBlock)block;
 
 @end

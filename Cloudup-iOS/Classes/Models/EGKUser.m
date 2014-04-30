@@ -10,7 +10,7 @@
 
 @implementation EGKUser
 
-- (id)initWithJSON:(NSDictionary *)JSONDictionary
+- (instancetype)initWithJSON:(NSDictionary *)JSONDictionary
 {
     self = [super init];
     
