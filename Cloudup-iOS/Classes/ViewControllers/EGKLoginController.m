@@ -11,6 +11,7 @@
 #import "EGKCloudupClient.h"
 #import "EGKUser.h"
 #import "EGKUserSession.h"
+#import "EGKApplicationController.h"
 
 @interface EGKLoginController ()
 @property (strong, nonatomic) UITextField *emailText;
@@ -20,18 +21,12 @@
 
 @implementation EGKLoginController
 
-- (id)init
-{
-    if (self = [super init]) {
-    }
-    
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
+    //TODO: split this up into methods
+    
     self.view.backgroundColor = [EGKAppearanceManager orange];
     
     UIImageView *logoView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cloudup-white-logo"]];
@@ -110,7 +105,8 @@
         if (authenticated) {
             [session useSession];
             self.directionsLabel.text = [NSString stringWithFormat:@"Welcome %@.", session.username];
-            //push to next controller
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:EGKDidLoginNotification object:self];
         }
         else {
             self.directionsLabel.text = @"Wrong username or password.";

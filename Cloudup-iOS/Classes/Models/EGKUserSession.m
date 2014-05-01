@@ -10,7 +10,6 @@
 #import "EGKUser.h"
 #import <SSKeychain/SSKeychain.h>
 
-static NSString *const EGKCurrentUserSessionKey = @"com.elbongurk.cloudup.currentUserSession";
 static NSString *const EGKServiceKey = @"Cloudup";
 
 static EGKUserSession *_currentUserSession = nil;
@@ -21,19 +20,18 @@ static EGKUserSession *_currentUserSession = nil;
 {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        NSString *username = [[NSUserDefaults standardUserDefaults] valueForKey:EGKCurrentUserSessionKey];
-        if (username) {
+        NSDictionary *account = [[SSKeychain accountsForService:EGKServiceKey] lastObject];
+        if (account) {
+            NSString *username = account[kSSKeychainAccountKey];
             NSString *password = [SSKeychain passwordForService:EGKServiceKey account:username];
-            if (password) {
-                _currentUserSession = [[EGKUserSession alloc] initWithPassword:password forUsername:username];
-            }
+            _currentUserSession = [[EGKUserSession alloc] initWithPassword:password forUsername:username];
         }
     });
     
     return _currentUserSession;
 }
 
-- (id)initWithPassword:(NSString *)password forUsername:(NSString *)username
+- (instancetype)initWithPassword:(NSString *)password forUsername:(NSString *)username
 {
     self = [super init];
     
@@ -41,8 +39,8 @@ static EGKUserSession *_currentUserSession = nil;
         return nil;
     }
     
-    _username = [username copy];
-    _password = [password copy];
+    _username = username;
+    _password = password;
     
     return self;
 }
@@ -50,7 +48,6 @@ static EGKUserSession *_currentUserSession = nil;
 - (BOOL)useSession
 {
     if ([SSKeychain setPassword:self.password forService:EGKServiceKey account:self.username]) {
-        [[NSUserDefaults standardUserDefaults] setValue:self.username forKey:EGKCurrentUserSessionKey];
         _currentUserSession = self;
         return YES;
     }
@@ -58,11 +55,15 @@ static EGKUserSession *_currentUserSession = nil;
     return NO;
 }
 
-- (void)clearSession
+- (BOOL)clearSession
 {
-    if (_currentUserSession == self) {
+    if (_currentUserSession == self &&
+        [SSKeychain deletePasswordForService:EGKServiceKey account:self.username]) {
         _currentUserSession = nil;
+        return YES;
     }
+    
+    return NO;
 }
 
 @end

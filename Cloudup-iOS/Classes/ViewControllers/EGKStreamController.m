@@ -7,32 +7,62 @@
 //
 
 #import "EGKStreamController.h"
+#import "EGKCloudupClient.h"
+#import "EGKArrayDataSource.h"
+#import "EGKStream.h"
+#import "EGKStreamCell.h"
+#import "EGKApplicationController.h"
+#import "EGKUserSession.h"
 
-@interface EGKStreamController ()
+static NSString *const EGKStreamCellIdentifier = @"StreamCell";
+
+@interface EGKStreamController () <UITableViewDelegate>
+
+@property (nonatomic, strong) EGKArrayDataSource *source;
 
 @end
 
 @implementation EGKStreamController
 
-- (id)init
-{
-    self = [super init];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor blueColor];
+    
+    self.navigationItem.title = @"Streams";
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStyleDone target:self action:@selector(logout:)];
+
+    [self.tableView registerClass:[EGKStreamCell class] forCellReuseIdentifier:EGKStreamCellIdentifier];
+    
+    TableViewCellConfigureBlock configureCell = ^(EGKStreamCell *cell, EGKStream *stream) {
+        [cell configureForStream:stream];
+    };
+
+    self.source = [[EGKArrayDataSource alloc] initWithCellIdentifier:EGKStreamCellIdentifier
+                                                  configureCellBlock:configureCell];
+    
+    self.tableView.dataSource = self.source;
+    
+    [[EGKCloudupClient sharedClient] fetchStreamsWithCompletionBlock:^(NSArray *streams) {
+        [self.source addItems:streams];
+        [self.tableView reloadData];
+    }];
 }
 
-- (void)didReceiveMemoryWarning
+- (void)logout:(id)sender
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    EGKUserSession *session = [EGKUserSession currentUserSession];
+    
+    if ([session clearSession]) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:EGKDidLogoutNotification object:self];
+    }
+}
+
+#pragma mark UITableViewDelegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 180.0;
 }
 
 @end

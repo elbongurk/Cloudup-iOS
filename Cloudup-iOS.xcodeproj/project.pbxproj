@@ -8,11 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		095C82B27B0A4BDD83628BF5 /* libPods-unit_tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A0D10858BF07451BAA4AACAF /* libPods-unit_tests.a */; };
-		2D61D5C3190B000200EB6B6E /* EGKUserAvatar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D61D5C2190B000200EB6B6E /* EGKUserAvatar.m */; };
+		2D0D03F1190EEFF600A907E7 /* EGKArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D0D03F0190EEFF600A907E7 /* EGKArrayDataSource.m */; };
+		2D1F34451911793700D5A7D4 /* EGKStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1F34441911793700D5A7D4 /* EGKStream.m */; };
+		2D1F34481911795400D5A7D4 /* EGKStreamItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1F34471911795400D5A7D4 /* EGKStreamItem.m */; };
+		2D1F344C191184D600D5A7D4 /* NSDateFormatter+EGKDefaultDateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1F344B191184D600D5A7D4 /* NSDateFormatter+EGKDefaultDateFormatter.m */; };
+		2D1F344F191199B700D5A7D4 /* EGKStreamCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1F344E191199B700D5A7D4 /* EGKStreamCell.m */; };
 		2D97A9FE19071578000E9275 /* EGKLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D97A9FD19071578000E9275 /* EGKLoginController.m */; };
 		2D97AA011907191A000E9275 /* EGKStreamController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D97AA001907191A000E9275 /* EGKStreamController.m */; };
 		37C17D5B177446DEADF9267B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 550E27DFEBC942A0A48D3008 /* Images.xcassets */; };
 		7A92AB7550A346D0A5552A8B /* EGKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD75BC08B6944F5847AB093 /* EGKAppDelegate.m */; };
+		7E1C53D61911C87C00CAB113 /* EGKThumb.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1C53D51911C87C00CAB113 /* EGKThumb.m */; };
 		7E2761B91907D66F008000C5 /* EGKApplicationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2761B81907D66F008000C5 /* EGKApplicationController.m */; };
 		7ED8154B1909C46A00AB88CB /* EGKUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED8154A1909C46A00AB88CB /* EGKUser.m */; };
 		7ED8154E1909C47A00AB88CB /* EGKUserSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED8154D1909C47A00AB88CB /* EGKUserSession.m */; };
@@ -37,8 +42,16 @@
 		04FF0F43221E4AD5A054E754 /* Cloudup-iOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Cloudup-iOS-Info.plist"; sourceTree = "<group>"; };
 		06759F648FB9475EA3FB6E26 /* UnitTests-Prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UnitTests-Prefix.pch"; sourceTree = "<group>"; };
 		249838936BEF4FA0815FFA90 /* Cloudup-iOS-Prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Cloudup-iOS-Prefix.pch"; sourceTree = "<group>"; };
-		2D61D5C1190B000200EB6B6E /* EGKUserAvatar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGKUserAvatar.h; sourceTree = "<group>"; };
-		2D61D5C2190B000200EB6B6E /* EGKUserAvatar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGKUserAvatar.m; sourceTree = "<group>"; };
+		2D0D03EF190EEFF600A907E7 /* EGKArrayDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGKArrayDataSource.h; sourceTree = "<group>"; };
+		2D0D03F0190EEFF600A907E7 /* EGKArrayDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGKArrayDataSource.m; sourceTree = "<group>"; };
+		2D1F34431911793700D5A7D4 /* EGKStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGKStream.h; sourceTree = "<group>"; };
+		2D1F34441911793700D5A7D4 /* EGKStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGKStream.m; sourceTree = "<group>"; };
+		2D1F34461911795400D5A7D4 /* EGKStreamItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGKStreamItem.h; sourceTree = "<group>"; };
+		2D1F34471911795400D5A7D4 /* EGKStreamItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGKStreamItem.m; sourceTree = "<group>"; };
+		2D1F344A191184D600D5A7D4 /* NSDateFormatter+EGKDefaultDateFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+EGKDefaultDateFormatter.h"; sourceTree = "<group>"; };
+		2D1F344B191184D600D5A7D4 /* NSDateFormatter+EGKDefaultDateFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+EGKDefaultDateFormatter.m"; sourceTree = "<group>"; };
+		2D1F344D191199B700D5A7D4 /* EGKStreamCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGKStreamCell.h; sourceTree = "<group>"; };
+		2D1F344E191199B700D5A7D4 /* EGKStreamCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGKStreamCell.m; sourceTree = "<group>"; };
 		2D97A9FC19071578000E9275 /* EGKLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGKLoginController.h; sourceTree = "<group>"; };
 		2D97A9FD19071578000E9275 /* EGKLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGKLoginController.m; sourceTree = "<group>"; };
 		2D97A9FF1907191A000E9275 /* EGKStreamController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGKStreamController.h; sourceTree = "<group>"; };
@@ -46,6 +59,8 @@
 		550E27DFEBC942A0A48D3008 /* Images.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5B62653685B04F5E94AE93A1 /* UnitTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "UnitTests-Info.plist"; sourceTree = "<group>"; };
 		66565E00D82248E08470A1AE /* Pods-unit_tests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-unit_tests.xcconfig"; path = "Pods/Pods-unit_tests.xcconfig"; sourceTree = "<group>"; };
+		7E1C53D41911C87C00CAB113 /* EGKThumb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGKThumb.h; sourceTree = "<group>"; };
+		7E1C53D51911C87C00CAB113 /* EGKThumb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGKThumb.m; sourceTree = "<group>"; };
 		7E2761B71907D66F008000C5 /* EGKApplicationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGKApplicationController.h; sourceTree = "<group>"; };
 		7E2761B81907D66F008000C5 /* EGKApplicationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGKApplicationController.m; sourceTree = "<group>"; };
 		7ED815491909C46A00AB88CB /* EGKUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGKUser.h; sourceTree = "<group>"; };
@@ -126,6 +141,8 @@
 		44A051365AD947F9BB44D05E /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				2D1F344A191184D600D5A7D4 /* NSDateFormatter+EGKDefaultDateFormatter.h */,
+				2D1F344B191184D600D5A7D4 /* NSDateFormatter+EGKDefaultDateFormatter.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -193,8 +210,12 @@
 				7ED8154A1909C46A00AB88CB /* EGKUser.m */,
 				7ED8154C1909C47A00AB88CB /* EGKUserSession.h */,
 				7ED8154D1909C47A00AB88CB /* EGKUserSession.m */,
-				2D61D5C1190B000200EB6B6E /* EGKUserAvatar.h */,
-				2D61D5C2190B000200EB6B6E /* EGKUserAvatar.m */,
+				2D1F34431911793700D5A7D4 /* EGKStream.h */,
+				2D1F34441911793700D5A7D4 /* EGKStream.m */,
+				2D1F34461911795400D5A7D4 /* EGKStreamItem.h */,
+				2D1F34471911795400D5A7D4 /* EGKStreamItem.m */,
+				7E1C53D41911C87C00CAB113 /* EGKThumb.h */,
+				7E1C53D51911C87C00CAB113 /* EGKThumb.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -247,6 +268,8 @@
 		DC4BADFB5AFB4C9E928F7C4A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2D1F344D191199B700D5A7D4 /* EGKStreamCell.h */,
+				2D1F344E191199B700D5A7D4 /* EGKStreamCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -254,6 +277,8 @@
 		E2F9F2342F9F45A59CEFAEFD /* DataSources */ = {
 			isa = PBXGroup;
 			children = (
+				2D0D03EF190EEFF600A907E7 /* EGKArrayDataSource.h */,
+				2D0D03F0190EEFF600A907E7 /* EGKArrayDataSource.m */,
 			);
 			path = DataSources;
 			sourceTree = "<group>";
@@ -483,15 +508,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D97A9FE19071578000E9275 /* EGKLoginController.m in Sources */,
+				7E1C53D61911C87C00CAB113 /* EGKThumb.m in Sources */,
 				7ED8154E1909C47A00AB88CB /* EGKUserSession.m in Sources */,
 				7A92AB7550A346D0A5552A8B /* EGKAppDelegate.m in Sources */,
 				7ED8154B1909C46A00AB88CB /* EGKUser.m in Sources */,
+				2D0D03F1190EEFF600A907E7 /* EGKArrayDataSource.m in Sources */,
 				7ED815591909C9DF00AB88CB /* EGKAppearanceManager.m in Sources */,
+				2D1F344C191184D600D5A7D4 /* NSDateFormatter+EGKDefaultDateFormatter.m in Sources */,
 				E3F4321069A34E9FBD8D1681 /* main.m in Sources */,
 				7E2761B91907D66F008000C5 /* EGKApplicationController.m in Sources */,
 				2D97AA011907191A000E9275 /* EGKStreamController.m in Sources */,
+				2D1F34481911795400D5A7D4 /* EGKStreamItem.m in Sources */,
+				2D1F34451911793700D5A7D4 /* EGKStream.m in Sources */,
 				7ED815551909C76A00AB88CB /* EGKCloudupClient.m in Sources */,
-				2D61D5C3190B000200EB6B6E /* EGKUserAvatar.m in Sources */,
+				2D1F344F191199B700D5A7D4 /* EGKStreamCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,10 +7,11 @@
 //
 
 #import "EGKUser.h"
+#import "EGKThumb.h"
 
 @implementation EGKUser
 
-- (id)initWithJSON:(NSDictionary *)JSONDictionary
+- (instancetype)initWithJSON:(NSDictionary *)JSONDictionary
 {
     self = [super init];
     
@@ -21,6 +22,7 @@
     _userID = JSONDictionary[@"id"];
     _name = JSONDictionary[@"name"];
     _username = JSONDictionary[@"username"];
+    _avatar = [EGKThumb thumbsWithJSON:JSONDictionary[@"avatar"]];
 
     return self;
 }
