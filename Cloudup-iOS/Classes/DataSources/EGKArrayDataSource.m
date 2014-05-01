@@ -10,7 +10,7 @@
 
 @interface EGKArrayDataSource ()
 
-@property (nonatomic, strong) NSArray *items;
+@property (nonatomic, strong) NSMutableArray *items;
 @property (nonatomic, copy) NSString *cellIdentifier;
 @property (nonatomic, copy) TableViewCellConfigureBlock configureCellBlock;
 
@@ -23,9 +23,8 @@
     return nil;
 }
 
-- (instancetype)initWithItems:(NSArray *)anItems
-               cellIdentifier:(NSString *)aCellIdentifier
-           configureCellBlock:(TableViewCellConfigureBlock)aConfigureCellBlock
+- (instancetype)initWithCellIdentifier:(NSString *)aCellIdentifier
+                    configureCellBlock:(TableViewCellConfigureBlock)aConfigureCellBlock
 {
     self = [super init];
     
@@ -33,31 +32,48 @@
         return nil;
     }
 
-    _items = anItems;
+    _items = [NSMutableArray new];
     _cellIdentifier = aCellIdentifier;
     _configureCellBlock = aConfigureCellBlock;
 
     return self;
 }
 
-- (id)itemAtIndexPath:(NSIndexPath *)indexPath
+- (id)itemForSection:(NSInteger)section
 {
-    return self.items[(NSUInteger) indexPath.row];
+    return self.items[(NSUInteger)section];
+}
+
+- (void)addItems:(NSArray *)items
+{
+    [self.items addObjectsFromArray:items];
 }
 
 
 #pragma mark UITableViewDataSource
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return (NSInteger)self.items.count;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 1;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    id item = [self itemForSection:section];
+    return [item description];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:self.cellIdentifier
                                                             forIndexPath:indexPath];
-    id item = [self itemAtIndexPath:indexPath];
+    
+    id item = [self itemForSection:indexPath.section];
     self.configureCellBlock(cell, item);
     return cell;
 }

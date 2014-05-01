@@ -9,10 +9,12 @@
 #import "AFHTTPSessionManager.h"
 @class EGKUser;
 @class EGKUserSession;
+@class EGKStream;
 
 typedef void(^EGKCloudupClientUserCompletionBlock)(EGKUser *user);
 typedef void(^EGKCloudupClientUserSessionCompletionBlock)(BOOL authenticated);
 typedef void(^EGKCloudupClientStreamsCompletionBlock)(NSArray *streams);
+typedef void(^EGKCloudupClientStreamItemsCompletionBlock)(NSArray *items);
 
 @interface EGKCloudupClient : AFHTTPSessionManager
 

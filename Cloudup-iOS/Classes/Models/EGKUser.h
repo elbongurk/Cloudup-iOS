@@ -13,7 +13,7 @@
 @property (copy, nonatomic) NSString *userID;
 @property (copy, nonatomic) NSString *name;
 @property (copy, nonatomic) NSString *username;
-@property (copy, nonatomic) NSString *avatar;
+@property (strong, nonatomic) NSArray *avatar;
 
 - (instancetype)initWithJSON:(NSDictionary *)JSONDictionary;
 

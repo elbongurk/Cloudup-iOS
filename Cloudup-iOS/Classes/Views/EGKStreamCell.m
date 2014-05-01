@@ -9,20 +9,25 @@
 #import "EGKStreamCell.h"
 #import "EGKStream.h"
 
+@interface EGKStreamCell ()
+
+
+
+@end
+
 @implementation EGKStreamCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        // Initialization code
     }
     return self;
 }
 
 - (void)configureForStream:(EGKStream *)stream
 {
-    self.textLabel.text = stream.title;
+    //TODO: here is where we fetch items
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

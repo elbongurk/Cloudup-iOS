@@ -7,6 +7,7 @@
 //
 
 #import "EGKUser.h"
+#import "EGKThumb.h"
 
 @implementation EGKUser
 
@@ -21,6 +22,7 @@
     _userID = JSONDictionary[@"id"];
     _name = JSONDictionary[@"name"];
     _username = JSONDictionary[@"username"];
+    _avatar = [EGKThumb thumbsWithJSON:JSONDictionary[@"avatar"]];
 
     return self;
 }

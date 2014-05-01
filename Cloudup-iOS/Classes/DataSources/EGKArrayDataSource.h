@@ -12,10 +12,10 @@ typedef void (^TableViewCellConfigureBlock)(id cell, id item);
 
 @interface EGKArrayDataSource : NSObject <UITableViewDataSource>
 
-- (instancetype)initWithItems:(NSArray *)anItems
-     cellIdentifier:(NSString *)aCellIdentifier
- configureCellBlock:(TableViewCellConfigureBlock)aConfigureCellBlock;
+- (instancetype)initWithCellIdentifier:(NSString *)aCellIdentifier
+                    configureCellBlock:(TableViewCellConfigureBlock)aConfigureCellBlock;
 
-- (id)itemAtIndexPath:(NSIndexPath *)indexPath;
+- (void)addItems:(NSArray *)items;
+- (id)itemForSection:(NSInteger)section;
 
 @end

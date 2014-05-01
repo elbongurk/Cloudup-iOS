@@ -11,20 +11,17 @@
 #import "EGKStreamController.h"
 #import "EGKUserSession.h"
 
+NSString *const EGKDidLoginNotification = @"EGKDidLoginNotification";
+NSString *const EGKDidLogoutNotification = @"EGKDidLogoutNotification";
+
 @interface EGKApplicationController ()
+
 @property (strong, nonatomic) EGKLoginController *loginController;
 @property (strong, nonatomic) UINavigationController *streamNavController;
+
 @end
 
 @implementation EGKApplicationController
-
-- (id)init
-{
-    self = [super init];
-    if (self) {
-    }
-    return self;
-}
 
 - (void)showLoginController
 {
@@ -58,8 +55,10 @@
 {
     [super viewDidLoad];
 
+    EGKStreamController *streamController = [[EGKStreamController alloc] initWithStyle:UITableViewStyleGrouped];
+    
     self.loginController = [EGKLoginController new];
-    self.streamNavController = [[UINavigationController alloc] initWithRootViewController:[EGKStreamController new]];
+    self.streamNavController = [[UINavigationController alloc] initWithRootViewController:streamController];
 
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     
@@ -83,21 +82,5 @@
 {
     [super didReceiveMemoryWarning];
 }
-
-- (BOOL)shouldAutorotate
-{
-    return YES;
-}
-
-- (NSUInteger)supportedInterfaceOrientations
-{
-    return UIInterfaceOrientationMaskAll;
-}
-
-- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
-{
-    return UIInterfaceOrientationPortrait;
-}
-
 
 @end

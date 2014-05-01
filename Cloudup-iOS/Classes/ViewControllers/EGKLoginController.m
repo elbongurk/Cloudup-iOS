@@ -11,9 +11,7 @@
 #import "EGKCloudupClient.h"
 #import "EGKUser.h"
 #import "EGKUserSession.h"
-
-NSString *const EGKDidLoginNotification = @"EGKDidLoginNotification";
-NSString *const EGKDidLogoutNotification = @"EGKDidLogoutNotification";
+#import "EGKApplicationController.h"
 
 @interface EGKLoginController ()
 @property (strong, nonatomic) UITextField *emailText;
@@ -23,19 +21,11 @@ NSString *const EGKDidLogoutNotification = @"EGKDidLogoutNotification";
 
 @implementation EGKLoginController
 
-- (id)init
-{
-    if (self = [super init]) {
-    }
-    
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
-    //TODO: move this to a custom LoginView UIView
+    //TODO: split this up into methods
     
     self.view.backgroundColor = [EGKAppearanceManager orange];
     

@@ -10,6 +10,7 @@
 #import "EGKUserSession.h"
 #import "EGKUser.h"
 #import "EGKStream.h"
+#import "EGKStreamItem.h"
 
 @implementation EGKCloudupClient
 
@@ -43,6 +44,39 @@
     return [client fetchUserWithCompletionBlock:^(EGKUser *user) {
         block(user != nil);
     }];
+}
+
+- (NSURLSessionDataTask *)fetchItemsWithCompletionBlock:(EGKCloudupClientStreamItemsCompletionBlock)block
+{
+    return [self GET:@"items"
+          parameters:nil
+             success:^(NSURLSessionDataTask *task, id responseObject) {
+                 NSArray *items;
+                 if ([responseObject isKindOfClass:[NSArray class]]) {
+                     items = [EGKStreamItem itemsWithJSON:responseObject];
+                 }
+                 block(items);
+             } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                 block(nil);
+             }];
+}
+
+- (NSURLSessionDataTask *)fetchItemsForStream:(EGKStream *)stream
+                          withCompletionBlock:(EGKCloudupClientStreamItemsCompletionBlock)block
+{
+    NSString *route = [NSString stringWithFormat:@"streams/%@/items", stream.streamID];
+    
+    return [self GET:route
+          parameters:nil
+             success:^(NSURLSessionDataTask *task, id responseObject) {
+                 NSArray *items;
+                 if ([responseObject isKindOfClass:[NSArray class]]) {
+                     items = [EGKStreamItem itemsWithJSON:responseObject];
+                 }
+                 block(items);
+             } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                 block(nil);
+             }];
 }
 
 - (NSURLSessionDataTask *)fetchStreamsWithCompletionBlock:(EGKCloudupClientStreamsCompletionBlock)block

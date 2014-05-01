@@ -11,11 +11,15 @@
 #import "EGKArrayDataSource.h"
 #import "EGKStream.h"
 #import "EGKStreamCell.h"
+#import "EGKApplicationController.h"
+#import "EGKUserSession.h"
 
 static NSString *const EGKStreamCellIdentifier = @"StreamCell";
 
-@interface EGKStreamController () <UITableViewDataSource, UITableViewDelegate>
+@interface EGKStreamController () <UITableViewDelegate>
+
 @property (nonatomic, strong) EGKArrayDataSource *source;
+
 @end
 
 @implementation EGKStreamController
@@ -26,25 +30,39 @@ static NSString *const EGKStreamCellIdentifier = @"StreamCell";
     
     self.navigationItem.title = @"Streams";
     
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStyleDone target:self action:@selector(logout:)];
+
+    [self.tableView registerClass:[EGKStreamCell class] forCellReuseIdentifier:EGKStreamCellIdentifier];
+    
     TableViewCellConfigureBlock configureCell = ^(EGKStreamCell *cell, EGKStream *stream) {
         [cell configureForStream:stream];
     };
-    
-    [self.tableView registerClass:[EGKStreamCell class] forCellReuseIdentifier:EGKStreamCellIdentifier];
 
+    self.source = [[EGKArrayDataSource alloc] initWithCellIdentifier:EGKStreamCellIdentifier
+                                                  configureCellBlock:configureCell];
+    
+    self.tableView.dataSource = self.source;
+    
     [[EGKCloudupClient sharedClient] fetchStreamsWithCompletionBlock:^(NSArray *streams) {
-        self.source = [[EGKArrayDataSource alloc] initWithItems:streams
-                                                 cellIdentifier:EGKStreamCellIdentifier
-                                             configureCellBlock:configureCell];
-        self.tableView.dataSource = self.source;
+        [self.source addItems:streams];
         [self.tableView reloadData];
     }];
-    
 }
 
-- (void)didReceiveMemoryWarning
+- (void)logout:(id)sender
 {
-    [super didReceiveMemoryWarning];
+    EGKUserSession *session = [EGKUserSession currentUserSession];
+    
+    if ([session clearSession]) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:EGKDidLogoutNotification object:self];
+    }
+}
+
+#pragma mark UITableViewDelegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 180.0;
 }
 
 @end
