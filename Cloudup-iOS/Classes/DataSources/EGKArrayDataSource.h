@@ -16,6 +16,6 @@ typedef void (^TableViewCellConfigureBlock)(id cell, id item);
                     configureCellBlock:(TableViewCellConfigureBlock)aConfigureCellBlock;
 
 - (void)addItems:(NSArray *)items;
-- (id)itemForSection:(NSInteger)section;
+- (id)itemForIndexPath:(NSIndexPath *)path;
 
 @end
