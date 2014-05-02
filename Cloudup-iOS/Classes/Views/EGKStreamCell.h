@@ -10,6 +10,8 @@
 
 @class EGKStream;
 
+extern NSString *const EGKStreamCellIdentifier;
+
 @interface EGKStreamCell : UITableViewCell
 
 - (void)configureForStream:(EGKStream *)stream;

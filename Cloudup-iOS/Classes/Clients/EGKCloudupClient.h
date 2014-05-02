@@ -24,5 +24,8 @@ typedef void(^EGKCloudupClientStreamItemsCompletionBlock)(NSArray *items);
 
 - (NSURLSessionDataTask *)fetchUserWithCompletionBlock:(EGKCloudupClientUserCompletionBlock)block;
 - (NSURLSessionDataTask *)fetchStreamsWithCompletionBlock:(EGKCloudupClientStreamsCompletionBlock)block;
+- (NSURLSessionDataTask *)fetchItemsForStream:(EGKStream *)stream
+                          withCompletionBlock:(EGKCloudupClientStreamItemsCompletionBlock)block;
+- (NSURLSessionDataTask *)fetchItemsWithCompletionBlock:(EGKCloudupClientStreamItemsCompletionBlock)block;
 
 @end

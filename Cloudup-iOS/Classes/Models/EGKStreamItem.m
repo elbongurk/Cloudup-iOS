@@ -92,5 +92,16 @@
     }
 }
 
+- (EGKThumb *)thumbForSize:(NSString *)size
+{
+    for (EGKThumb *thumb in self.thumbs) {
+        if ([thumb.size isEqualToString:size]) {
+            return thumb;
+        }
+    }
+    
+    return nil;
+}
+
 
 @end
