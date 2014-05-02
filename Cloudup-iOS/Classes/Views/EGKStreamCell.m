@@ -10,7 +10,7 @@
 #import "EGKStreamItemCell.h"
 #import "EGKStream.h"
 #import "EGKStreamItem.h"
-#import "EGKItemDataSource.h"
+#import "EGKArrayDataSource.h"
 #import "EGKAppearanceManager.h"
 
 NSString *const EGKStreamCellIdentifier = @"EGKStreamCell";
@@ -20,7 +20,7 @@ NSString *const EGKStreamCellIdentifier = @"EGKStreamCell";
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UILabel *countLabel;
 @property (nonatomic, strong) UICollectionView *collectionView;
-@property (nonatomic, strong) EGKItemDataSource *source;
+@property (nonatomic, strong) EGKArrayDataSource *source;
 
 @end
 
@@ -65,12 +65,12 @@ NSString *const EGKStreamCellIdentifier = @"EGKStreamCell";
 
 - (void)setupCollectionDataSource
 {
-    CollectionViewCellConfigureBlock configureCell = ^(EGKStreamItemCell *cell, EGKStreamItem *item) {
+    CellConfigureBlock configureCell = ^(EGKStreamItemCell *cell, EGKStreamItem *item) {
         [cell configureForItem:item];
     };
     
-    _source = [[EGKItemDataSource alloc] initWithCellIdentifier:EGKStreamItemCellIdentifier
-                                             configureCellBlock:configureCell];
+    _source = [[EGKArrayDataSource alloc] initWithCellIdentifier:EGKStreamItemCellIdentifier
+                                              configureCellBlock:configureCell];
 }
 
 - (void)setupCollectionView

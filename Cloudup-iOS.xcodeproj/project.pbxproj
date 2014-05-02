@@ -16,7 +16,6 @@
 		2D97A9FE19071578000E9275 /* EGKLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D97A9FD19071578000E9275 /* EGKLoginController.m */; };
 		2D97AA011907191A000E9275 /* EGKStreamController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D97AA001907191A000E9275 /* EGKStreamController.m */; };
 		2DD3EFF31912E2F5002542F2 /* EGKStreamItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD3EFF21912E2F5002542F2 /* EGKStreamItemCell.m */; };
-		2DD3EFF61912E895002542F2 /* EGKItemDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD3EFF51912E895002542F2 /* EGKItemDataSource.m */; };
 		37C17D5B177446DEADF9267B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 550E27DFEBC942A0A48D3008 /* Images.xcassets */; };
 		7A92AB7550A346D0A5552A8B /* EGKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD75BC08B6944F5847AB093 /* EGKAppDelegate.m */; };
 		7E1C53D61911C87C00CAB113 /* EGKThumb.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1C53D51911C87C00CAB113 /* EGKThumb.m */; };
@@ -60,8 +59,6 @@
 		2D97AA001907191A000E9275 /* EGKStreamController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGKStreamController.m; sourceTree = "<group>"; };
 		2DD3EFF11912E2F5002542F2 /* EGKStreamItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGKStreamItemCell.h; sourceTree = "<group>"; };
 		2DD3EFF21912E2F5002542F2 /* EGKStreamItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGKStreamItemCell.m; sourceTree = "<group>"; };
-		2DD3EFF41912E895002542F2 /* EGKItemDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGKItemDataSource.h; sourceTree = "<group>"; };
-		2DD3EFF51912E895002542F2 /* EGKItemDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGKItemDataSource.m; sourceTree = "<group>"; };
 		550E27DFEBC942A0A48D3008 /* Images.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5B62653685B04F5E94AE93A1 /* UnitTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "UnitTests-Info.plist"; sourceTree = "<group>"; };
 		66565E00D82248E08470A1AE /* Pods-unit_tests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-unit_tests.xcconfig"; path = "Pods/Pods-unit_tests.xcconfig"; sourceTree = "<group>"; };
@@ -287,8 +284,6 @@
 			children = (
 				2D0D03EF190EEFF600A907E7 /* EGKArrayDataSource.h */,
 				2D0D03F0190EEFF600A907E7 /* EGKArrayDataSource.m */,
-				2DD3EFF41912E895002542F2 /* EGKItemDataSource.h */,
-				2DD3EFF51912E895002542F2 /* EGKItemDataSource.m */,
 			);
 			path = DataSources;
 			sourceTree = "<group>";
@@ -523,7 +518,6 @@
 				7ED8154E1909C47A00AB88CB /* EGKUserSession.m in Sources */,
 				7A92AB7550A346D0A5552A8B /* EGKAppDelegate.m in Sources */,
 				7ED8154B1909C46A00AB88CB /* EGKUser.m in Sources */,
-				2DD3EFF61912E895002542F2 /* EGKItemDataSource.m in Sources */,
 				2D0D03F1190EEFF600A907E7 /* EGKArrayDataSource.m in Sources */,
 				7ED815591909C9DF00AB88CB /* EGKAppearanceManager.m in Sources */,
 				2D1F344C191184D600D5A7D4 /* NSDateFormatter+EGKDefaultDateFormatter.m in Sources */,

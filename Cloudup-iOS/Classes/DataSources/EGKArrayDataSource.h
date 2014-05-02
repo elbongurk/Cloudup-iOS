@@ -8,12 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void (^TableViewCellConfigureBlock)(id cell, id item);
+typedef void (^CellConfigureBlock)(id cell, id item);
 
-@interface EGKArrayDataSource : NSObject <UITableViewDataSource>
+@interface EGKArrayDataSource : NSObject <UITableViewDataSource, UICollectionViewDataSource>
 
 - (instancetype)initWithCellIdentifier:(NSString *)aCellIdentifier
-                    configureCellBlock:(TableViewCellConfigureBlock)aConfigureCellBlock;
+                    configureCellBlock:(CellConfigureBlock)aConfigureCellBlock;
 
 - (void)addItems:(NSArray *)items;
 - (id)itemForIndexPath:(NSIndexPath *)path;

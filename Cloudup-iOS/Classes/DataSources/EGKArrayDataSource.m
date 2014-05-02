@@ -12,7 +12,7 @@
 
 @property (nonatomic, strong) NSMutableArray *items;
 @property (nonatomic, copy) NSString *cellIdentifier;
-@property (nonatomic, copy) TableViewCellConfigureBlock configureCellBlock;
+@property (nonatomic, copy) CellConfigureBlock configureCellBlock;
 
 @end
 
@@ -24,7 +24,7 @@
 }
 
 - (instancetype)initWithCellIdentifier:(NSString *)aCellIdentifier
-                    configureCellBlock:(TableViewCellConfigureBlock)aConfigureCellBlock
+                    configureCellBlock:(CellConfigureBlock)aConfigureCellBlock
 {
     self = [super init];
     
@@ -46,6 +46,7 @@
 
 - (void)addItems:(NSArray *)items
 {
+    [self.items removeAllObjects];
     [self.items addObjectsFromArray:items];
 }
 
@@ -64,7 +65,28 @@
     
     id item = [self itemForIndexPath:indexPath];
     self.configureCellBlock(cell, item);
+
     return cell;
 }
+
+#pragma mark UICollectionViewDataSource
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return (NSInteger)self.items.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
+                  cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:self.cellIdentifier
+                                                                           forIndexPath:indexPath];
+    
+    id item = [self itemForIndexPath:indexPath];
+    self.configureCellBlock(cell, item);
+    
+    return cell;
+}
+
 
 @end
