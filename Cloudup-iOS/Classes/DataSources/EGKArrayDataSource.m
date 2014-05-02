@@ -12,7 +12,7 @@
 
 @property (nonatomic, strong) NSMutableArray *items;
 @property (nonatomic, copy) NSString *cellIdentifier;
-@property (nonatomic, copy) TableViewCellConfigureBlock configureCellBlock;
+@property (nonatomic, copy) CellConfigureBlock configureCellBlock;
 
 @end
 
@@ -24,7 +24,7 @@
 }
 
 - (instancetype)initWithCellIdentifier:(NSString *)aCellIdentifier
-                    configureCellBlock:(TableViewCellConfigureBlock)aConfigureCellBlock
+                    configureCellBlock:(CellConfigureBlock)aConfigureCellBlock
 {
     self = [super init];
     
@@ -39,33 +39,23 @@
     return self;
 }
 
-- (id)itemForSection:(NSInteger)section
+- (id)itemForIndexPath:(NSIndexPath *)path
 {
-    return self.items[(NSUInteger)section];
+    return self.items[(NSUInteger)path.item];
 }
 
 - (void)addItems:(NSArray *)items
 {
+    [self.items removeAllObjects];
     [self.items addObjectsFromArray:items];
 }
 
 
 #pragma mark UITableViewDataSource
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return (NSInteger)self.items.count;
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
-}
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    id item = [self itemForSection:section];
-    return [item description];
+    return (NSInteger)self.items.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -73,9 +63,30 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:self.cellIdentifier
                                                             forIndexPath:indexPath];
     
-    id item = [self itemForSection:indexPath.section];
+    id item = [self itemForIndexPath:indexPath];
     self.configureCellBlock(cell, item);
+
     return cell;
 }
+
+#pragma mark UICollectionViewDataSource
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return (NSInteger)self.items.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
+                  cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:self.cellIdentifier
+                                                                           forIndexPath:indexPath];
+    
+    id item = [self itemForIndexPath:indexPath];
+    self.configureCellBlock(cell, item);
+    
+    return cell;
+}
+
 
 @end

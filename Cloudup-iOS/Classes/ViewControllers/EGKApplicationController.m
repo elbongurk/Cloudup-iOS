@@ -55,7 +55,7 @@ NSString *const EGKDidLogoutNotification = @"EGKDidLogoutNotification";
 {
     [super viewDidLoad];
 
-    EGKStreamController *streamController = [[EGKStreamController alloc] initWithStyle:UITableViewStyleGrouped];
+    EGKStreamController *streamController = [EGKStreamController new];
     
     self.loginController = [EGKLoginController new];
     self.streamNavController = [[UINavigationController alloc] initWithRootViewController:streamController];

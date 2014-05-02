@@ -25,4 +25,9 @@
     return [UIColor colorWithRed:245/255.0f green:241/255.0f blue:237/255.0f alpha:1.0f];
 }
 
++ (UIColor *)textGrey
+{
+    return [UIColor colorWithRed:174/255.0f green:174/255.0f blue:174/255.0f alpha:1.0f];
+}
+
 @end
