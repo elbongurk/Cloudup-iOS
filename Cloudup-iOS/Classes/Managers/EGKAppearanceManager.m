@@ -20,4 +20,9 @@
     return [UIColor colorWithRed:37/255.0f green:161/255.0f blue:195/255.0f alpha:1.0f];
 }
 
++ (UIColor *)tan
+{
+    return [UIColor colorWithRed:245/255.0f green:241/255.0f blue:237/255.0f alpha:1.0f];
+}
+
 @end

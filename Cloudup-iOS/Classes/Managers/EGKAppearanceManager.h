@@ -12,5 +12,6 @@
 
 + (UIColor *)orange;
 + (UIColor *)blue;
++ (UIColor *)tan;
 
 @end

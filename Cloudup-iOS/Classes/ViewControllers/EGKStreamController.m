@@ -13,8 +13,7 @@
 #import "EGKStreamCell.h"
 #import "EGKApplicationController.h"
 #import "EGKUserSession.h"
-
-static NSString *const EGKStreamCellIdentifier = @"StreamCell";
+#import "EGKAppearanceManager.h"
 
 @interface EGKStreamController () <UITableViewDelegate>
 
@@ -29,6 +28,7 @@ static NSString *const EGKStreamCellIdentifier = @"StreamCell";
     [super viewDidLoad];
     
     self.navigationItem.title = @"Streams";
+    self.tableView.backgroundColor = [EGKAppearanceManager tan];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStyleDone target:self action:@selector(logout:)];
 

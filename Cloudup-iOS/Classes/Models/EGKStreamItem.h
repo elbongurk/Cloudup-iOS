@@ -17,6 +17,8 @@ typedef NS_ENUM(NSInteger, EGKStreamItemType) {
     EGKStreamItemTypeArticle
 };
 
+@class EGKThumb;
+
 @interface EGKStreamItem : NSObject
 
 @property (copy, nonatomic) NSString *itemID;
@@ -34,5 +36,6 @@ typedef NS_ENUM(NSInteger, EGKStreamItemType) {
 
 + (NSArray *)itemsWithJSON:(NSArray *)JSONArray;
 - (instancetype)initWithJSON:(NSDictionary *)JSONDictionary;
+- (EGKThumb *)thumbForSize:(NSString *)size;
 
 @end

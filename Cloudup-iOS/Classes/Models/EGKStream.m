@@ -8,6 +8,14 @@
 
 #import "EGKStream.h"
 #import "NSDateFormatter+EGKDefaultDateFormatter.h"
+#import "EGKCloudupClient.h"
+
+@interface EGKStream ()
+
+@property (nonatomic, strong) NSArray *fetchedItems;
+
+@end
+
 
 @implementation EGKStream
 
@@ -67,6 +75,19 @@
 - (NSString *)description
 {
     return self.title;
+}
+
+- (void)fetchItemsWithCompletionBlock:(EGKStreamFetchItemsCompletionBlock)block
+{
+    if (self.fetchedItems) {
+        block(self.fetchedItems);
+    }
+    else {
+        [[EGKCloudupClient sharedClient] fetchItemsForStream:self withCompletionBlock:^(NSArray *items) {
+            self.fetchedItems = items;
+            block(self.fetchedItems);
+        }];
+    }
 }
 
 @end

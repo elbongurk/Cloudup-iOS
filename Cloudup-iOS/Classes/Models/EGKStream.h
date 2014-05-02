@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+typedef void(^EGKStreamFetchItemsCompletionBlock)(NSArray *items);
+
 @interface EGKStream : NSObject
 
 @property (copy, nonatomic) NSString *streamID;
@@ -19,5 +21,7 @@
 
 + (NSArray *)streamsWithJSON:(NSArray *)JSONArray;
 - (instancetype)initWithJSON:(NSDictionary *)JSONDictionary;
+
+- (void)fetchItemsWithCompletionBlock:(EGKStreamFetchItemsCompletionBlock)block;
 
 @end
