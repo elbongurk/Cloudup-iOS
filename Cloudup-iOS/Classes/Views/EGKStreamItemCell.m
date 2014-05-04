@@ -30,6 +30,14 @@ NSString *const EGKStreamItemCellIdentifier = @"EGKStreamItemCell";
         return nil;
     }
     
+    [self setupContextView];
+    [self setupImageView];
+
+    return self;
+}
+
+- (void)setupContextView
+{
     self.contentView.backgroundColor = [UIColor whiteColor];
     self.contentView.layer.cornerRadius = 5.0;
     
@@ -37,14 +45,15 @@ NSString *const EGKStreamItemCellIdentifier = @"EGKStreamItemCell";
     self.contentView.layer.shadowOffset = CGSizeMake(0.0f, 1.0f);
     self.contentView.layer.shadowRadius = 2.0f;
     self.contentView.layer.shadowOpacity = 0.15f;
-    
-    _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 200, 170)];
-    
-    _imageView.contentMode = UIViewContentModeCenter;
+}
+
+- (void)setupImageView
+{
+    _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 180, 136)];
+    _imageView.clipsToBounds = YES;
+    _imageView.contentMode = UIViewContentModeScaleAspectFill;
     
     [self.contentView addSubview:_imageView];
-
-    return self;
 }
 
 - (void)configureForItem:(EGKStreamItem *)item
@@ -56,7 +65,7 @@ NSString *const EGKStreamItemCellIdentifier = @"EGKStreamItemCell";
         [self.imageView setImageWithURL:url];
     }
     else {
-        //[self.imageView setImage:[UIImage imageNamed:@""]];
+        [self.imageView setImage:[UIImage imageNamed:@"camera"]];
     }
 }
 
