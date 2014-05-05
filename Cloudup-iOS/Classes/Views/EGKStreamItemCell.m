@@ -59,13 +59,15 @@ NSString *const EGKStreamItemCellIdentifier = @"EGKStreamItemCell";
 - (void)configureForItem:(EGKStreamItem *)item
 {
     EGKThumb *thumb = [item thumbForSize:@"300x300"];
-
+    UIImage *camera = [UIImage imageNamed:@"camera"];
+    
     if (thumb) {
         NSURL *url = [NSURL URLWithString:thumb.url];
-        [self.imageView setImageWithURL:url];
+        [self.imageView setImageWithURL:url
+                       placeholderImage:camera];
     }
     else {
-        [self.imageView setImage:[UIImage imageNamed:@"camera"]];
+        [self.imageView setImage:camera];
     }
 }
 
