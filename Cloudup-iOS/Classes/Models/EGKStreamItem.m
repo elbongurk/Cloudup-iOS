@@ -95,7 +95,6 @@
     }
 }
 
-
 - (void)setTypeWithString:(NSString *)type
 {
     if ([type isEqualToString:@"code"]) {

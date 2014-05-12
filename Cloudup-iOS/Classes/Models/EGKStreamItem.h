@@ -39,6 +39,7 @@ typedef NS_ENUM(NSInteger, EGKStreamItemOembedType) {
 @property (copy, nonatomic) NSString *mime;
 @property (copy, nonatomic) NSArray *thumbs;
 @property (strong, nonatomic) EGKThumb *thumbUrl;
+@property (strong, nonatomic) EGKThumb *oembedThumbUrl;
 @property (assign, nonatomic) BOOL complete;
 @property (strong, nonatomic) NSDate *created;
 
