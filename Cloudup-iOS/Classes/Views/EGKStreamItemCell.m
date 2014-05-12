@@ -58,8 +58,12 @@ NSString *const EGKStreamItemCellIdentifier = @"EGKStreamItemCell";
 
 - (void)configureForItem:(EGKStreamItem *)item
 {
-    EGKThumb *thumb = [item thumbForSize:@"300x300"];
-    UIImage *camera = [UIImage imageNamed:@"camera"];
+    EGKThumb *thumb = [item thumbForSize:EGKThumbSize300X300];
+    UIImage *camera = [UIImage imageNamed:@"item-type-url"];
+    
+    //need to set the contentMode based on retrieved size and type
+    //need to set the placeholder based on type
+    //need to set the type into the lower left hand corner
     
     if (thumb) {
         NSURL *url = [NSURL URLWithString:thumb.url];

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "EGKThumb.h"
 
 typedef NS_ENUM(NSInteger, EGKStreamItemType) {
     EGKStreamItemTypeUnknown,
@@ -16,8 +17,6 @@ typedef NS_ENUM(NSInteger, EGKStreamItemType) {
     EGKStreamItemTypeUrl,
     EGKStreamItemTypeArticle
 };
-
-@class EGKThumb;
 
 @interface EGKStreamItem : NSObject
 
@@ -31,11 +30,13 @@ typedef NS_ENUM(NSInteger, EGKStreamItemType) {
 @property (copy, nonatomic) NSString *directURL;
 @property (copy, nonatomic) NSString *mime;
 @property (copy, nonatomic) NSArray *thumbs;
+@property (strong, nonatomic) EGKThumb *thumbUrl;
+@property (strong, nonatomic) EGKThumb *oembedThumbUrl;
 @property (assign, nonatomic) BOOL complete;
 @property (strong, nonatomic) NSDate *created;
 
 + (NSArray *)itemsWithJSON:(NSArray *)JSONArray;
 - (instancetype)initWithJSON:(NSDictionary *)JSONDictionary;
-- (EGKThumb *)thumbForSize:(NSString *)size;
+- (EGKThumb *)thumbForSize:(EGKThumbSize)size;
 
 @end

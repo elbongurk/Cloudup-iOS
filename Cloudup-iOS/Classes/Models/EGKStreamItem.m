@@ -52,6 +52,16 @@
     _complete = [JSONDictionary[@"complete"] boolValue];
     _created = [[NSDateFormatter RFC3339DateFormatter]
                 dateFromString:JSONDictionary[@"created_at"]];
+
+    NSString *thumbUrl = JSONDictionary[@"thumb_url"];
+    if (thumbUrl) {
+        _thumbUrl = [[EGKThumb alloc] initWithUrl:thumbUrl];
+    }
+    
+    NSString *oembedThumbUrl = JSONDictionary[@"oembed_thumbnail_url"];
+    if (oembedThumbUrl) {
+        _oembedThumbUrl = [[EGKThumb alloc] initWithUrl:oembedThumbUrl];
+    }
     
     [self setTitle:JSONDictionary[@"title"] withDefault:@"Unknown"];
     [self setTypeWithString:JSONDictionary[@"type"]];
@@ -92,15 +102,26 @@
     }
 }
 
-- (EGKThumb *)thumbForSize:(NSString *)size
+- (EGKThumb *)thumbForSize:(EGKThumbSize)size
 {
+    EGKThumb *found = nil;
+    
     for (EGKThumb *thumb in self.thumbs) {
-        if ([thumb.size isEqualToString:size]) {
+        if (thumb.size >= size) {
             return thumb;
         }
+        found = thumb;
     }
     
-    return nil;
+    if (!found) {
+        found = self.thumbUrl;
+    }
+    
+    if (!found) {
+        found = self.oembedThumbUrl;
+    }
+    
+    return found;
 }
 
 
