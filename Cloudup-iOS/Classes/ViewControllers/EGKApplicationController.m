@@ -23,32 +23,47 @@ NSString *const EGKDidLogoutNotification = @"EGKDidLogoutNotification";
 
 @implementation EGKApplicationController
 
-- (void)showLoginController
+- (void)showController:(UIViewController *)toController
 {
-    if (self.streamNavController.parentViewController == self) {
-        [self.streamNavController.view removeFromSuperview];
-        [self.streamNavController removeFromParentViewController];
+    UIViewController *fromController = self.childViewControllers.firstObject;
+    
+    [fromController willMoveToParentViewController:nil];
+    
+    [self addChildViewController:toController];
+    
+    if (fromController) {
+        [self transitionFromViewController:fromController
+                          toViewController:toController
+                                  duration:1.0f
+                                   options:UIViewAnimationOptionTransitionCrossDissolve
+                                animations:nil
+                                completion:^(BOOL finished) {
+                                    [toController didMoveToParentViewController:self];
+                                    [fromController removeFromParentViewController];
+                                }];
+    }
+    else {
+        [self.view addSubview:toController.view];
+        
+        [UIView animateWithDuration:1.0f animations:^{
+            toController.view.alpha = 0.0f;
+            toController.view.alpha = 1.0f;
+        } completion:^(BOOL finished) {
+            [toController didMoveToParentViewController:self];
+        }];
+        
     }
     
-    //TODO: Should handle animations
-    
-    [self addChildViewController:self.loginController];
-    [self.view addSubview:self.loginController.view];
-    [self.loginController didMoveToParentViewController:self];
+}
+
+- (void)showLoginController
+{
+    [self showController:self.loginController];
 }
 
 - (void)showStreamController
 {
-    if (self.loginController.parentViewController == self) {
-        [self.loginController.view removeFromSuperview];
-        [self.loginController removeFromParentViewController];
-    }
-
-    //TODO: Should handle animations
-    
-    [self addChildViewController:self.streamNavController];
-    [self.view addSubview:self.streamNavController.view];
-    [self.streamNavController didMoveToParentViewController:self];
+    [self showController:self.streamNavController];
 }
 
 - (void)viewDidLoad
@@ -76,11 +91,6 @@ NSString *const EGKDidLogoutNotification = @"EGKDidLogoutNotification";
     else {
         [self showLoginController];
     }
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
 }
 
 @end

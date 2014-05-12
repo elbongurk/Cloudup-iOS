@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "EGKThumb.h"
 
 typedef NS_ENUM(NSInteger, EGKStreamItemType) {
     EGKStreamItemTypeUnknown,
@@ -17,7 +18,13 @@ typedef NS_ENUM(NSInteger, EGKStreamItemType) {
     EGKStreamItemTypeArticle
 };
 
-@class EGKThumb;
+typedef NS_ENUM(NSInteger, EGKStreamItemOembedType) {
+    EGKStreamItemOembedTypeUnknown,
+    EGKStreamItemOembedTypePhoto,
+    EGKStreamItemOembedTypeVideo,
+    EGKStreamItemOembedTypeLink,
+    EGKStreamItemOembedTypeRich
+};
 
 @interface EGKStreamItem : NSObject
 
@@ -31,11 +38,23 @@ typedef NS_ENUM(NSInteger, EGKStreamItemType) {
 @property (copy, nonatomic) NSString *directURL;
 @property (copy, nonatomic) NSString *mime;
 @property (copy, nonatomic) NSArray *thumbs;
+@property (strong, nonatomic) EGKThumb *thumbUrl;
 @property (assign, nonatomic) BOOL complete;
 @property (strong, nonatomic) NSDate *created;
 
+@property (copy, nonatomic) NSString *oembedUrl;
+@property (assign, nonatomic) EGKStreamItemOembedType oembedType;
+@property (copy, nonatomic) NSString *oembedProviderName;
+@property (strong, nonatomic) EGKThumb *oembedThumbUrl;
+
 + (NSArray *)itemsWithJSON:(NSArray *)JSONArray;
 - (instancetype)initWithJSON:(NSDictionary *)JSONDictionary;
-- (EGKThumb *)thumbForSize:(NSString *)size;
+
+- (EGKThumb *)thumbForSize:(EGKThumbSize)size;
+- (BOOL)isImage;
+- (BOOL)isVideo;
+- (BOOL)isAudio;
+- (BOOL)isText;
+- (BOOL)isLink;
 
 @end

@@ -36,8 +36,6 @@ NSString *const EGKStreamCellIdentifier = @"EGKStreamCell";
     
     self.contentView.backgroundColor = [EGKAppearanceManager tan];
     
-    //TODO: use autolayout here
-
     [self setupTitleLabel];
     [self setupCountLabel];
     [self setupCollectionDataSource];
@@ -96,14 +94,11 @@ NSString *const EGKStreamCellIdentifier = @"EGKStreamCell";
 
 - (void)configureForStream:(EGKStream *)stream
 {
-    self.titleLabel.text = [stream.title uppercaseString];
+    NSString *title = stream.title.length > 0 ? stream.title : @"Untitled";
+    self.titleLabel.text = [title uppercaseString];
     
-    NSString *count = [NSString stringWithFormat:@"%d ITEM", stream.items.count];
-    
-    if (stream.items.count != 1) {
-        count = [count stringByAppendingString:@"S"];
-    }
-
+    NSString *item = stream.items.count != 1 ? @"ITEMS" : @"ITEM";
+    NSString *count = [NSString stringWithFormat:@"%d %@", stream.items.count, item];
     self.countLabel.text = count;
 
     [stream fetchItemsWithCompletionBlock:^(NSArray *items) {

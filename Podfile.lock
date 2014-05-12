@@ -22,7 +22,6 @@ PODS:
   - OCMock (2.2.4)
   - Specta (0.2.1)
   - SSKeychain (1.2.2)
-  - SVPullToRefresh (0.4.1)
 
 DEPENDENCIES:
   - AFNetworking
@@ -30,7 +29,6 @@ DEPENDENCIES:
   - OCMock
   - Specta
   - SSKeychain
-  - SVPullToRefresh
 
 SPEC CHECKSUMS:
   AFNetworking: ae513199cca79e9d7af2708ccabe2ed075550c42
@@ -38,6 +36,5 @@ SPEC CHECKSUMS:
   OCMock: 5008fae4b4789b8fc3e48cd7660f2eb5ef8ce89e
   Specta: 2d06220591110c6d9757d8be8ecf8e63aa40dc2a
   SSKeychain: 3d0b76c87e7b062a7ad1631a825fddec84367d44
-  SVPullToRefresh: 61a0e4bd12bd6f8e3465909810b0fbeb1a28d5f2
 
 COCOAPODS: 0.32.1
