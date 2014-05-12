@@ -3,12 +3,12 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "camera.png"
+      "filename" : "item-type-audio.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "camera@2x.png"
+      "filename" : "item-type-audio@2x.png"
     }
   ],
   "info" : {

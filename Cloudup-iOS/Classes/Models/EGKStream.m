@@ -50,31 +50,16 @@
     }
 
     _streamID = JSONDictionary[@"id"];
+    _title = JSONDictionary[@"title"];
     _url = JSONDictionary[@"url"];
     _created = [[NSDateFormatter RFC3339DateFormatter]
                 dateFromString:JSONDictionary[@"created_at"]];
     _updated = [[NSDateFormatter RFC3339DateFormatter]
                 dateFromString:JSONDictionary[@"updated_at"]];
     
-    [self setTitle:JSONDictionary[@"title"] withDefault:@"Untitled"];
-    
     _items = [NSArray arrayWithArray:JSONDictionary[@"items"]];
     
     return self;
-}
-
-- (void)setTitle:(NSString *)title withDefault:(NSString *)defaultString
-{
-    _title = title;
-    
-    if (![_title length]) {
-        _title = defaultString;
-    }
-}
-
-- (NSString *)description
-{
-    return self.title;
 }
 
 - (void)fetchItemsWithCompletionBlock:(EGKStreamFetchItemsCompletionBlock)block
