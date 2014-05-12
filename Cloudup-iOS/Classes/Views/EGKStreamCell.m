@@ -36,8 +36,6 @@ NSString *const EGKStreamCellIdentifier = @"EGKStreamCell";
     
     self.contentView.backgroundColor = [EGKAppearanceManager tan];
     
-    //TODO: use autolayout here
-
     [self setupTitleLabel];
     [self setupCountLabel];
     [self setupCollectionDataSource];
