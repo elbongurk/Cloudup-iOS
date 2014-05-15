@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@class EGKStreamItem;
-
 extern NSString *const EGKStreamItemCellIdentifier;
+
+@class EGKStreamItem;
 
 @interface EGKStreamItemCell : UICollectionViewCell
 

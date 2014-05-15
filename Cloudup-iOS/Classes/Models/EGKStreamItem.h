@@ -41,11 +41,13 @@ typedef NS_ENUM(NSInteger, EGKStreamItemOembedType) {
 @property (strong, nonatomic) EGKThumb *thumbUrl;
 @property (assign, nonatomic) BOOL complete;
 @property (strong, nonatomic) NSDate *created;
+@property (assign, nonatomic) CGSize size;
 
 @property (copy, nonatomic) NSString *oembedUrl;
 @property (assign, nonatomic) EGKStreamItemOembedType oembedType;
 @property (copy, nonatomic) NSString *oembedProviderName;
 @property (strong, nonatomic) EGKThumb *oembedThumbUrl;
+@property (assign, nonatomic) CGSize oembedSize;
 
 + (NSArray *)itemsWithJSON:(NSArray *)JSONArray;
 - (instancetype)initWithJSON:(NSDictionary *)JSONDictionary;

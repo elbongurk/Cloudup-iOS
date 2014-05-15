@@ -8,11 +8,22 @@
 
 #import <UIKit/UIKit.h>
 
-@class EGKStream;
-
 extern NSString *const EGKStreamCellIdentifier;
 
+@class EGKStream;
+@class EGKStreamItem;
+
+@protocol EGKStreamCellDelegate <NSObject>
+
+@optional
+
+- (void)didSelectStreamItem:(EGKStreamItem *)item fromStream:(EGKStream *)stream;
+
+@end
+
 @interface EGKStreamCell : UITableViewCell
+
+@property (assign, nonatomic) id <EGKStreamCellDelegate> delegate;
 
 - (void)configureForStream:(EGKStream *)stream;
 

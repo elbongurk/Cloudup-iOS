@@ -20,6 +20,7 @@
 		7A92AB7550A346D0A5552A8B /* EGKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD75BC08B6944F5847AB093 /* EGKAppDelegate.m */; };
 		7E1C53D61911C87C00CAB113 /* EGKThumb.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1C53D51911C87C00CAB113 /* EGKThumb.m */; };
 		7E2761B91907D66F008000C5 /* EGKApplicationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2761B81907D66F008000C5 /* EGKApplicationController.m */; };
+		7E52DF81192232A200409B7A /* EGKStreamItemController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E52DF80192232A200409B7A /* EGKStreamItemController.m */; };
 		7ED8154B1909C46A00AB88CB /* EGKUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED8154A1909C46A00AB88CB /* EGKUser.m */; };
 		7ED8154E1909C47A00AB88CB /* EGKUserSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED8154D1909C47A00AB88CB /* EGKUserSession.m */; };
 		7ED815551909C76A00AB88CB /* EGKCloudupClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED815541909C76A00AB88CB /* EGKCloudupClient.m */; };
@@ -66,6 +67,8 @@
 		7E1C53D51911C87C00CAB113 /* EGKThumb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGKThumb.m; sourceTree = "<group>"; };
 		7E2761B71907D66F008000C5 /* EGKApplicationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGKApplicationController.h; sourceTree = "<group>"; };
 		7E2761B81907D66F008000C5 /* EGKApplicationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGKApplicationController.m; sourceTree = "<group>"; };
+		7E52DF7F192232A200409B7A /* EGKStreamItemController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGKStreamItemController.h; sourceTree = "<group>"; };
+		7E52DF80192232A200409B7A /* EGKStreamItemController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGKStreamItemController.m; sourceTree = "<group>"; };
 		7ED815491909C46A00AB88CB /* EGKUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGKUser.h; sourceTree = "<group>"; };
 		7ED8154A1909C46A00AB88CB /* EGKUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGKUser.m; sourceTree = "<group>"; };
 		7ED8154C1909C47A00AB88CB /* EGKUserSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGKUserSession.h; sourceTree = "<group>"; };
@@ -202,6 +205,8 @@
 				2D97AA001907191A000E9275 /* EGKStreamController.m */,
 				7E2761B71907D66F008000C5 /* EGKApplicationController.h */,
 				7E2761B81907D66F008000C5 /* EGKApplicationController.m */,
+				7E52DF7F192232A200409B7A /* EGKStreamItemController.h */,
+				7E52DF80192232A200409B7A /* EGKStreamItemController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -514,6 +519,7 @@
 			files = (
 				2DD3EFF31912E2F5002542F2 /* EGKStreamItemCell.m in Sources */,
 				2D97A9FE19071578000E9275 /* EGKLoginController.m in Sources */,
+				7E52DF81192232A200409B7A /* EGKStreamItemController.m in Sources */,
 				7E1C53D61911C87C00CAB113 /* EGKThumb.m in Sources */,
 				7ED8154E1909C47A00AB88CB /* EGKUserSession.m in Sources */,
 				7A92AB7550A346D0A5552A8B /* EGKAppDelegate.m in Sources */,

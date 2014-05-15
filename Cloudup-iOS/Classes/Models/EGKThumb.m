@@ -99,8 +99,7 @@
 
 - (BOOL)isSmallerThanSize:(CGSize)size
 {
-    return self.size != EGKThumbSizeUnknown &&
-    (self.width < size.width || self.height < size.height);
+    return self.width < size.width || self.height < size.height;
 }
 
 
