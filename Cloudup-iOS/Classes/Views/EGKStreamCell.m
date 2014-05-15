@@ -15,12 +15,13 @@
 
 NSString *const EGKStreamCellIdentifier = @"EGKStreamCell";
 
-@interface EGKStreamCell ()
+@interface EGKStreamCell ()<UICollectionViewDelegate>
 
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UILabel *countLabel;
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) EGKArrayDataSource *source;
+@property (nonatomic, strong) EGKStream *stream;
 
 @end
 
@@ -35,6 +36,7 @@ NSString *const EGKStreamCellIdentifier = @"EGKStreamCell";
     }
     
     self.contentView.backgroundColor = [EGKAppearanceManager tan];
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
     
     [self setupTitleLabel];
     [self setupCountLabel];
@@ -88,8 +90,18 @@ NSString *const EGKStreamCellIdentifier = @"EGKStreamCell";
         forCellWithReuseIdentifier:EGKStreamItemCellIdentifier];
     
     _collectionView.dataSource = self.source;
+    _collectionView.delegate = self;
 
     [self.contentView addSubview:_collectionView];
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    EGKStreamItem *item = [self.source itemForIndexPath:indexPath];
+    
+    if (self.delegate && item) {
+        [self.delegate didSelectStreamItem:item fromStream:self.stream];
+    }
 }
 
 - (void)configureForStream:(EGKStream *)stream
@@ -100,6 +112,8 @@ NSString *const EGKStreamCellIdentifier = @"EGKStreamCell";
     NSString *item = stream.items.count != 1 ? @"ITEMS" : @"ITEM";
     NSString *count = [NSString stringWithFormat:@"%d %@", stream.items.count, item];
     self.countLabel.text = count;
+
+    self.stream = stream;
 
     [stream fetchItemsWithCompletionBlock:^(NSArray *items) {
         [self.source addItems:items];

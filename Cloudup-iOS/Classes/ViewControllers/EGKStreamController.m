@@ -14,8 +14,10 @@
 #import "EGKApplicationController.h"
 #import "EGKUserSession.h"
 #import "EGKAppearanceManager.h"
+#import "EGKStreamItem.h"
+#import "EGKStreamItemController.h"
 
-@interface EGKStreamController () <UITableViewDelegate>
+@interface EGKStreamController () <EGKStreamCellDelegate>
 
 @property (nonatomic, strong) EGKArrayDataSource *source;
 
@@ -27,7 +29,7 @@
 {
     [super viewDidLoad];
     
-    self.navigationItem.title = @"Streams";
+    self.navigationItem.title = @"Stream";
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStyleDone target:self action:@selector(logout:)];
     
@@ -44,6 +46,7 @@
 {
     CellConfigureBlock configureCell = ^(EGKStreamCell *cell, EGKStream *stream) {
         [cell configureForStream:stream];
+        cell.delegate = self;
     };
     
     self.source = [[EGKArrayDataSource alloc] initWithCellIdentifier:EGKStreamCellIdentifier
@@ -57,6 +60,14 @@
     self.tableView.rowHeight = 240.0f;
 
     [self.tableView registerClass:[EGKStreamCell class] forCellReuseIdentifier:EGKStreamCellIdentifier];
+}
+
+- (void)didSelectStreamItem:(EGKStreamItem *)item fromStream:(EGKStream *)stream
+{
+    if (item.isImage) {
+        EGKStreamItemController *controller = [[EGKStreamItemController alloc] initWithStreamItem:item];
+        [self.navigationController pushViewController:controller animated:YES];
+    }
 }
 
 - (void)logout:(id)sender

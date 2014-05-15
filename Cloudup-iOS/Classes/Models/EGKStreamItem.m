@@ -53,7 +53,9 @@
     _complete = [JSONDictionary[@"complete"] boolValue];
     _created = [[NSDateFormatter RFC3339DateFormatter]
                 dateFromString:JSONDictionary[@"created_at"]];
-
+    
+    _size = CGSizeMake([JSONDictionary[@"width"] floatValue], [JSONDictionary[@"height"] floatValue]);
+    
     NSString *thumbUrl = JSONDictionary[@"thumb_url"];
     if (thumbUrl) {
         _thumbUrl = [[EGKThumb alloc] initWithUrl:thumbUrl];
@@ -70,6 +72,8 @@
     if (oembedThumbUrl) {
         _oembedThumbUrl = [[EGKThumb alloc] initWithUrl:oembedThumbUrl];
     }
+    
+    _oembedSize = CGSizeMake([JSONDictionary[@"oembed_width"] floatValue], [JSONDictionary[@"oembed_height"] floatValue]);
     
     [self setOembedTypeWithString:JSONDictionary[@"oembed_type"]];
 
