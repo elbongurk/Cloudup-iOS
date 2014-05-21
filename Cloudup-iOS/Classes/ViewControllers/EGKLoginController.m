@@ -25,8 +25,6 @@
 {
     [super viewDidLoad];
 
-    //TODO: split this up into methods
-    
     self.view.backgroundColor = [EGKAppearanceManager orange];
     
     UIImageView *logoView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cloudup-white-logo"]];

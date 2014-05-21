@@ -15,7 +15,8 @@
 #import "EGKUserSession.h"
 #import "EGKAppearanceManager.h"
 #import "EGKStreamItem.h"
-#import "EGKStreamItemController.h"
+#import "EGKStreamImageItemController.h"
+#import "EGKStreamLinkItemController.h"
 
 @interface EGKStreamController () <EGKStreamCellDelegate>
 
@@ -65,7 +66,11 @@
 - (void)didSelectStreamItem:(EGKStreamItem *)item fromStream:(EGKStream *)stream
 {
     if (item.isImage) {
-        EGKStreamItemController *controller = [[EGKStreamItemController alloc] initWithStreamItem:item];
+        EGKStreamImageItemController *controller = [[EGKStreamImageItemController alloc] initWithStreamItem:item];
+        [self.navigationController pushViewController:controller animated:YES];
+    }
+    else {
+        EGKStreamLinkItemController *controller = [[EGKStreamLinkItemController alloc] initWithStreamItem:item];
         [self.navigationController pushViewController:controller animated:YES];
     }
 }

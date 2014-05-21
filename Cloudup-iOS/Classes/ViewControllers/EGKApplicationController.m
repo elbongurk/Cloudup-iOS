@@ -18,10 +18,24 @@ NSString *const EGKDidLogoutNotification = @"EGKDidLogoutNotification";
 
 @property (strong, nonatomic) EGKLoginController *loginController;
 @property (strong, nonatomic) UINavigationController *streamNavController;
+@property (strong, nonatomic) NSMutableArray *observers;
 
 @end
 
 @implementation EGKApplicationController
+
+- (instancetype)init
+{
+    self = [super init];
+    
+    if (!self) {
+        return nil;
+    }
+    
+    _observers = [NSMutableArray new];
+    
+    return self;
+}
 
 - (void)showController:(UIViewController *)toController
 {
@@ -79,18 +93,22 @@ NSString *const EGKDidLogoutNotification = @"EGKDidLogoutNotification";
     
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     
-    [center addObserverForName:EGKDidLoginNotification object:nil
-                         queue:[NSOperationQueue mainQueue]
-                    usingBlock:^(NSNotification *note) {
-                        [weakSelf showStreamController];
-                    }];
+    id observer = [center addObserverForName:EGKDidLoginNotification object:nil
+                                       queue:[NSOperationQueue mainQueue]
+                                  usingBlock:^(NSNotification *note) {
+                                      [weakSelf showStreamController];
+                                  }];
     
-    [center addObserverForName:EGKDidLogoutNotification
-                        object:nil
-                         queue:[NSOperationQueue mainQueue]
-                    usingBlock:^(NSNotification *note) {
-                        [weakSelf showLoginController];
-                    }];
+    [self.observers addObject:observer];
+    
+    observer = [center addObserverForName:EGKDidLogoutNotification
+                                   object:nil
+                                    queue:[NSOperationQueue mainQueue]
+                               usingBlock:^(NSNotification *note) {
+                                   [weakSelf showLoginController];
+                               }];
+    
+    [self.observers addObject:observer];
     
     if ([EGKUserSession currentUserSession]) {
         [self showStreamController];
@@ -102,7 +120,9 @@ NSString *const EGKDidLogoutNotification = @"EGKDidLogoutNotification";
 
 - (void)dealloc
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    for (id observer in self.observers) {
+        [[NSNotificationCenter defaultCenter] removeObserver:observer];
+    }
 }
 
 @end

@@ -1,8 +1,8 @@
 //
-//  EGKStreamItemController.h
+//  EGKStreamLinkItemController.h
 //  Cloudup-iOS
 //
-//  Created by Ryan Krug on 5/13/14.
+//  Created by Ryan Krug on 5/21/14.
 //  Copyright (c) 2014 Elbongurk. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 @class EGKStreamItem;
 
-@interface EGKStreamItemController : UIViewController
+@interface EGKStreamLinkItemController : UIViewController
 
 - (instancetype)initWithStreamItem:(EGKStreamItem *)item;
 
