@@ -6,11 +6,11 @@
 //  Copyright (c) 2014 Elbongurk. All rights reserved.
 //
 
-#import "EGKStreamItemController.h"
+#import "EGKStreamImageItemController.h"
 #import "EGKStreamItem.h"
 #import "UIImageView+AFNetworking.h"
 
-@interface EGKStreamItemController ()<UIScrollViewDelegate>
+@interface EGKStreamImageItemController ()<UIScrollViewDelegate>
 
 @property (strong, nonatomic) EGKStreamItem *item;
 @property (strong, nonatomic) UIImageView *imageView;
@@ -20,7 +20,7 @@
 
 @end
 
-@implementation EGKStreamItemController
+@implementation EGKStreamImageItemController
 
 - (instancetype)init
 {
